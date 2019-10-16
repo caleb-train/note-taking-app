@@ -13,11 +13,11 @@ module.exports = {
   entry: {
     index: [
       'webpack-hot-middleware/client?reload=true',
-      path.join(__dirname, "client", "index.jsx"),
+      path.join(__dirname, "app/client", "index.jsx"),
     ]
   },
   output: {
-    path: path.join(__dirname, "client-prod"),
+    path: path.join(__dirname, "public/client"),
     publicPath: "/",
     filename: "index.js",
   },
@@ -61,14 +61,10 @@ module.exports = {
       }
     ]
   },
-  devServer: {
-    contentBase: [path.join(__dirname, "src"), path.join(__dirname, "assets")],
-
-  },
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
     new HtmlWebpackPlugin({
-      template: path.join(__dirname, "client", "index.html")
+      template: path.join(__dirname, "app/client", "index.html")
     }),
     new MiniCssExtractPlugin({
       filename: "index.css",
