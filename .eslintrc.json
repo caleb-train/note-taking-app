@@ -13,5 +13,19 @@
     "ecmaVersion": 2018,
     "sourceType": "module"
   },
+  "settings": {
+    "import/resolver": {
+      "babel-module": {
+        "root": [
+          "./"
+        ],
+        "alias": {
+          "@": "./",
+          "@src": "./src",
+          "@styles": "./src/styles"
+        }
+      }
+    }
+  },
   "rules": {}
 }
