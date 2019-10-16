@@ -9,7 +9,7 @@ dotenv.config();
 
 module.exports = {
   mode: process.env.NODE_ENV || "development",
-  entry: path.join(__dirname, "src", "public/index.jsx"),
+  entry: path.join(__dirname, "src", "index.jsx"),
   output: {
     path: path.join(__dirname, "public"),
     publicPath: "/",
@@ -58,7 +58,7 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: path.join(__dirname, "src", "public/index.html")
+      template: path.join(__dirname, "src", "index.html")
     }),
     new MiniCssExtractPlugin({
       filename: "index.css",

@@ -6,19 +6,10 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build:client": "webpack --production",
-    "build:server": "babel src/server.js --out-file ./server.js",
-    "start": "node ./server.js",
+    "build:server": "babel src/server.js --out-file public/server.js",
+    "heroku-postbuild": "npm run build:client && npm run build:server",
+    "start": "node public/server.js",
     "dev": "webpack-dev-server"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "npm run build:client && npm run build:server && lint-staged"
-    }
-  },
-  "lint-staged": {
-    "**/**/*.{js,json, scss, jsx}": [
-      "git add ."
-    ]
   },
   "repository": {
     "type": "git",
@@ -58,8 +49,6 @@
     "eslint-plugin-react": "^7.13.0",
     "file-loader": "^4.0.0",
     "html-webpack-plugin": "^3.2.0",
-    "husky": "^3.0.9",
-    "lint-staged": "^9.4.2",
     "mini-css-extract-plugin": "^0.7.0",
     "node-sass": "^4.12.0",
     "optimize-css-assets-webpack-plugin": "^5.0.1",
