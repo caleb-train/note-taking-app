@@ -16,8 +16,9 @@
         ],
         "alias": {
           "@": "./",
-          "@src": "./src",
-          "@styles": "./src/styles"
+          "@client": "./app/client",
+          "@styles": "./app/client/styles",
+          "@comp": "./app/client/components"
         }
       }
     ]
