@@ -11,7 +11,7 @@ module.exports = {
   mode: process.env.NODE_ENV || "development",
   entry: path.join(__dirname, "src", "index.jsx"),
   output: {
-    path: path.join(__dirname, "public/build"),
+    path: path.join(__dirname, "public"),
     publicPath: "/",
     filename: "index.js",
   },
