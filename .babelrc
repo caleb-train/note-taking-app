@@ -17,7 +17,8 @@
         "alias": {
           "@": "./",
           "@src": "./client",
-          "@styles": "./client/styles"
+          "@styles": "./client/styles",
+          "@comp": "./client/components"
         }
       }
     ]

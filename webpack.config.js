@@ -1,5 +1,6 @@
 const path = require("path");
 const dotenv = require("dotenv");
+const webpack = require('webpack');
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const TerserPlugin = require("terser-webpack-plugin");
@@ -9,11 +10,19 @@ dotenv.config();
 
 module.exports = {
   mode: process.env.NODE_ENV || "development",
-  entry: path.join(__dirname, "client", "index.jsx"),
+  entry: {
+    index: [
+      'webpack-hot-middleware/client?reload=true',
+      path.join(__dirname, "client", "index.jsx"),
+    ]
+  },
   output: {
-    path: path.join(__dirname, "public/client"),
+    path: path.join(__dirname, "client-prod"),
     publicPath: "/",
     filename: "index.js",
+  },
+  resolve: {
+    extensions: ['.js', '.jsx', '.scss'],
   },
   module: {
     rules: [
@@ -57,6 +66,7 @@ module.exports = {
 
   },
   plugins: [
+    new webpack.HotModuleReplacementPlugin(),
     new HtmlWebpackPlugin({
       template: path.join(__dirname, "client", "index.html")
     }),
@@ -67,6 +77,10 @@ module.exports = {
   ],
   optimization: {
     minimize: true,
-    minimizer: [new TerserPlugin(), new OptimizeCSSAssetsPlugin({})]
+    minimizer: [
+      new TerserPlugin(),
+      new OptimizeCSSAssetsPlugin({}),
+      new webpack.HotModuleReplacementPlugin()
+    ]
   }
 };
