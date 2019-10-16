@@ -16,7 +16,8 @@
         ],
         "alias": {
           "@": "./",
-          "@src": "./src"
+          "@src": "./src",
+          "@styles": "./src/styles"
         }
       }
     ]
