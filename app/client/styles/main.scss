@@ -6,10 +6,31 @@
 
 @tailwind screen;
 
-body {
-  @apply font-montserrat;
-}
+body, html {
+  @apply font-montserrat h-full overflow-hidden;
 
-.header {
-  color: red;
+}
+#app{
+  @apply w-full h-full overflow-auto flex-col flex;
+  background: radial-gradient(rgba(0,0,0,.07), rgba(0,0,0,.15));
+}
+main {
+  @apply mx-auto h-full flex-grow w-full;
+}
+.anim{
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  transition: all 0.5s ease; 
+}
+button {
+  @apply font-semibold border-2 border-gray-500 text-lg text-gray-700 px-3 py-1 rounded;
+  margin: 0 !important;
+  &:hover{
+    transform: scale(1.1);
+  }
+}
+a{
+  background-image: none !important;
+  border: none !important;
 }

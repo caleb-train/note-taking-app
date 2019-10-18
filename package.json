@@ -6,10 +6,10 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build:client": "webpack --production",
-    "build:server": "babel app/server --copy-files --out-dir public/server",
+    "build:server": "babel app --out-dir public --ignore app/client/**/*.jsx,app/client/**/*.scss,app/client/**/*.js",
     "heroku-postbuild": "npm run build:client && npm run build:server",
-    "start": "node public/server/index.js",
-    "dev": "nodemon --exec babel-node app/server/index.js",
+    "start": "node public/index.js",
+    "dev": "nodemon --exec babel-node app/index.js",
     "dev:server": "npm run heroku-postbuild && npm run dev",
     "dev:client": "webpack-dev-server"
   },
@@ -26,18 +26,21 @@
   "dependencies": {
     "@babel/runtime": "^7.6.3",
     "autoprefixer": "^9.6.0",
+    "axios": "^0.19.0",
     "body-parser": "^1.19.0",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "json-server": "^0.15.1",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
+    "react-router-dom": "^5.1.2",
     "tailwindcss": "^1.1.2",
-    "webpack-dev-middleware": "^3.7.2",
     "webpack": "^4.34.0",
+    "webpack-cli": "^3.3.4",
+    "webpack-dev-middleware": "^3.7.2",
     "webpack-dev-server": "^3.7.2",
-    "webpack-hot-middleware": "^2.25.0",
-    "webpack-cli": "^3.3.4"
+    "html-webpack-plugin": "^3.2.0",
+    "webpack-hot-middleware": "^2.25.0"
   },
   "devDependencies": {
     "@babel/cli": "^7.4.4",
@@ -56,7 +59,6 @@
     "eslint-plugin-import": "^2.17.3",
     "eslint-plugin-react": "^7.13.0",
     "file-loader": "^4.0.0",
-    "html-webpack-plugin": "^3.2.0",
     "mini-css-extract-plugin": "^0.7.0",
     "node-sass": "^4.12.0",
     "nodemon": "^1.19.4",

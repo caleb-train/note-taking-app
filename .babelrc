@@ -17,7 +17,10 @@
         "alias": {
           "@": "./",
           "@client": "./app/client",
+          "@utils": "./app/utils",
+          "@db": "./app/db",
           "@styles": "./app/client/styles",
+          "@routes": "./app/client/routes",
           "@comp": "./app/client/components"
         }
       }
