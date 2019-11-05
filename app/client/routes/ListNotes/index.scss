@@ -1,8 +1,39 @@
 .emptyicon{
-  @apply mr-2 inline-block;
+  &-hd{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+  }
   width: 8rem;
   height: 8rem;
+  margin-right: 0.5rem;
+  display: inline-block;
   background: url('/write.png');
   background-size: cover;
   background-repeat: no-repeat;
+}
+.rumple{
+  background-image: url('/crumpled-paper.webp');
+  background-blend-mode: multiply;
+  &.gray{
+    /* background-image: url('/crumpled-paper.jpg'); */
+    background-blend-mode: color-burn;
+  }
+}
+.card-hd{
+  width: 100%;
+  display: inline-block;
+  padding: 0 2rem;
+  margin: 2rem 0;
+  height: 14rem;
+  
+  @media (min-width: 768px) {
+    width: 50%;
+  }
+  @media (min-width: 992px) {
+    width: 33.333%;
+  }
 }

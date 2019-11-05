@@ -55,7 +55,7 @@ const SingleNote = ({ match })=>{
 
       </section>
       <section className="h-4/5">
-        <textarea onInput={auto_grow} onChange={updateNote} name="body" value={note.body} className={`w-full md:p-8 p-6 outline-none min-h-4/5 text-sm font-montserrat ${note.color || 'wht'}`}></textarea>
+        <textarea onInput={auto_grow} onChange={updateNote} name="body" value={note.body} className={`w-full md:p-8 p-6 rumple outline-none min-h-4/5 text-sm font-montserrat ${note.color || 'wht'}`}></textarea>
         <h5 className="mx-auto my-6 text-center">Make edits by simply changing the texts or color</h5>
       </section>
     </div>

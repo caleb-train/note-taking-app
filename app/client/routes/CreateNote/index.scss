@@ -1,7 +1,15 @@
 .colorpicker{
-  @apply flex w-4/5 flex-row justify-around my-6;
+  width: 80%;
+  display: flex;
+  justify-content: space-around;
+  margin: 1.5rem 0;
   div{
-    @apply w-8 h-8 rounded-full shadow opacity-50;
+    width: 8rem;
+    height: 8rem;
+    border-radius: 1000px;
+    border: 1px solid rgba(0,0,0,.4);
+    opacity: .6;
+    @apply w-8 h-8 rounded-full shadow;
     &.active{
       @apply opacity-100;
     }
@@ -42,6 +50,7 @@
 }
 .gray{
   @apply bg-gray-800 text-white;
+  background-blend-mode: darken;
   &.picker{
     @apply bg-gray-800
   }

@@ -37,7 +37,7 @@ const Nav = ({ history })=>{
     <nav className="mainNav px-2 sm:px-8  justify-between">
       <Link to="/" className="Logo flex items-center flex-grow">
         <div className="border-0 logo"></div>
-        <h3>NoteApp</h3>
+        <h3>ScrapBook</h3>
       </Link>
       <div className="w-32 flex flex-row flex-grow-0 justify-around">
         {makeNote ? <button className="btn p-1 px-2 text-white bg-green-600" onClick={createNote}>Create</button> : <Link to="/note"><button className="btn p-1 px-2">Add</button></Link> }

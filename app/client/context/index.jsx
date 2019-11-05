@@ -31,7 +31,7 @@ export const ThemeContext = ({ children })=>{
   }
 
   return (
-    <Context.Provider value={{...state, changeState}}>
+    <Context.Provider value={{...state, changeState, getSingleNote, saveNoteAtn }}>
       {children}
     </Context.Provider>
   )
