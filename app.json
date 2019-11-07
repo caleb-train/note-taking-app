@@ -2,8 +2,6 @@
   "name": "NOTE-APP",
   "description": "A system that allows efficient, cost-effective mail sending operations",
   "env": {
-    "NODE_ENV": {
-      "required": true
-    }
+    "NODE_ENV": "production"
   }
 }
