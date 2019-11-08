@@ -7,15 +7,23 @@
 @tailwind screen;
 
 body, html {
-  @apply font-montserrat h-full overflow-hidden;
-
+  font-family: Monsterrat;
+  overflow: hidden;
+  height: 100%;
 }
 #app{
-  @apply w-full h-full overflow-auto flex-col flex;
-  background: radial-gradient(rgba(0,0,0,.07), rgba(0,0,0,.15));
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  display: flex;
+  flex-direction: column;
+  background-image: radial-gradient( rgba(250, 250, 250, 0.85), rgba(250, 250, 250, 1)), url('/bg-what.webp');
 }
 main {
-  @apply mx-auto h-full flex-grow w-full;
+  margin: 0 auto;
+  height: 100%;
+  flex-grow: 1;
+  width: 100%;
 }
 .anim{
   -webkit-transition: all 0.5s ease;
@@ -24,7 +32,10 @@ main {
   transition: all 0.5s ease; 
 }
 button {
-  @apply font-semibold border-2 border-gray-500 text-lg text-gray-700 px-3 py-1 rounded;
+  font-weight: 500;
+  border: 2px solid rgb(0,0,0);
+  padding: .25rem .75rem;
+  border-radius: 1000px;
   margin: 0 !important;
   &:hover{
     transform: scale(1.1);

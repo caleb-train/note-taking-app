@@ -1,0 +1,8 @@
+export const LIST_NOTES = 'LIST_NOTES'
+export const CREATE_NOTE = 'CREATE_NOTE'
+export const EDIT_NOTE = 'EDIT_NOTE'
+export const UPDATE_NOTE = 'UPDATE_NOTE'
+export const DELETE_NOTE = 'DELETE_NOTE'
+export const FETCH_ERROR = 'FETCH_ERROR'
+export const RESET = 'RESET'
+export const GET_NOTE = 'GET_NOTE'

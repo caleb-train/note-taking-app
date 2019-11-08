@@ -18,9 +18,11 @@
           "@": "./",
           "@client": "./app/client",
           "@utils": "./app/utils",
+          "@store": "./app/client/store",
           "@db": "./app/db",
           "@styles": "./app/client/styles",
           "@routes": "./app/client/routes",
+          "@guards": "./app/client/guards",
           "@comp": "./app/client/components"
         }
       }

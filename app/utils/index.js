@@ -15,15 +15,17 @@ export const axiosCall = ({
     json: true,
   };
 
-  axios(axiosdata)
+  return axios(axiosdata)
   .then(result =>{
     const data = result && result.data;
     cb(data);
+    
+    return data;
   })
-  .catch ((e)=>{
+  .catch (e=>{
     cb(e);
     const { error } = e;
-    throw error;
+    throw error || 'Something went wrong';
   })
 };
 
@@ -32,5 +34,9 @@ export const truncateText = (content, maxLength) => {
     content = content.substr(0,maxLength) + '...';
   }
   return content;
+}
+
+export const auto_grow = (e) => {
+  e.target.style.height = (e.target.scrollHeight)+"px";
 }
 
