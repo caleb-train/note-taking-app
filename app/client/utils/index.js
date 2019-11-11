@@ -33,8 +33,8 @@ export const axiosCall = ({
 export const truncateText = (content, maxLength) => {
   if (content.length > maxLength) {
     content = content.substr(0,maxLength) + '...';
-  }
-  return content;
+    return content;
+  } else return content;
 }
 
 export const auto_grow = (e) => {

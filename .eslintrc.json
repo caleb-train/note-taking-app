@@ -24,6 +24,8 @@
           "@client": "./app/client",
           "@utils": "./app/client/utils",
           "@store": "./app/client/store",
+          "@db": "./app/server/db",
+          "@database": "./database.json",
           "@styles": "./app/client/styles",
           "@routes": "./app/client/routes",
           "@guards": "./app/client/guards",

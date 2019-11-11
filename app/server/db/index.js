@@ -1,5 +1,5 @@
 import crypto from 'crypto'
-import database from '../../database';
+import database from '@database';
 
 class Db{
   static add(note){

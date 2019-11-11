@@ -8,7 +8,7 @@
     "build:client": "webpack --production",
     "build:server": "babel app --out-dir public --ignore app/client/**/*.jsx,app/client/**/*.scss,app/client/**/*.js",
     "heroku-postbuild": "npm run build:client && npm run build:server",
-    "start": "node public/index.js",
+    "start": "node public/server/index.js",
     "dev": "nodemon --exec babel-node app/index.js",
     "dev:server": "npm run heroku-postbuild && npm run dev",
     "dev:client": "webpack-dev-server"

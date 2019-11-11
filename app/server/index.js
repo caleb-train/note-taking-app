@@ -32,11 +32,11 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use('/api/v1', routes);
 
-app.use('/', [express.static(path.join(__dirname, '../assets')), express.static(path.join(__dirname, 'client'))]);
+app.use('/', [express.static(path.join(__dirname, '../../assets')), express.static(path.join(__dirname, '../client'))]);
 
 app.listen(PORT || 3000, () => {
   app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, './client/index.html'))
+    res.sendFile(path.join(__dirname, '../client/index.html'))
   });
 });
 

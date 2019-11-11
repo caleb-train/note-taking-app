@@ -10,8 +10,8 @@ const SingleNote = ({ match, history })=>{
   const { id } = match.params
 
   const { 
-    editNote, isLoading, updateNote,
-    message, isErrored
+    editNote, isLoading,
+    updateNote, message
   } = useViewNote(id)
 
   return isLoading 
