@@ -10,14 +10,14 @@ const SingleNote = ({ match, history })=>{
   const { id } = match.params
 
   const { 
-    editNote, isLoading, updateNote,
-    message, isErrored
+    editNote, isLoading,
+    updateNote, message
   } = useViewNote(id)
 
   return isLoading 
   ? <Loader/> 
   : (
-    (!isErrored && message) || (message =='Something went wrong') ? <Redirect to='/'/>
+    message ? <Redirect to='/'/>
     : (editNote && (
       <div className="w-4/5 md:w-3/5 h-full flex flex-col mx-auto">
         <section className="h-1/4 mt-6 flex flex-col items-center">

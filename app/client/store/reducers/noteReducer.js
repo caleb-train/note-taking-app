@@ -1,4 +1,4 @@
-import * as actions from '../actions/actionTypes'
+import * as actions from '@store/actions/actionTypes'
 import { note } from './initialState'
 
 export default function (state, action) {

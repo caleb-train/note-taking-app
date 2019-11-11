@@ -1,24 +1,23 @@
 import React from 'react'
 import useListNote from '@client/hooks/useListNote'
 import Loader from '@comp/Loader'
+import { truncateText } from '@utils'
 import './index.scss'
 
 const ListNotes = ({ history })=>{
   const {
     isLoading, data, DeleteNote
   } = useListNote()
-
+  console.log(data)
   return isLoading 
   ? <Loader/> 
-  : data.length > 0 ? (
+  : data.length > 0 && data[0] !== null ? (
     data.map((note) => (
       <div key={note.id} className="card-hd">
         <div className={`card rumple ${note.color} h-full`}>
           <div className="card-body" onClick={_=>history.push(`/note/${note.id}`)}>
             <h4 className="card-title text-xl">{note.title}</h4>
-            <p className="card-text text-sm font-montserrat" style={{marginBottom: '2rem'}}>{
-              note.body.length > 100 ? `${note.body.substr(0,100)}...` : note.body
-              }</p>
+            <p className="card-text text-sm font-montserrat" style={{marginBottom: '2rem'}}>{truncateText(note.body, 100)}</p>
           </div>
           <div className="card-footer flex justify-between items-center" style={{border: 'none', padding: '0 1rem', height: '3rem'}}>
               <span className="text-sm">2-4-18</span>

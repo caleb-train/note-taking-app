@@ -4,6 +4,7 @@ const webpack = require('webpack');
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const TerserPlugin = require("terser-webpack-plugin");
+const WorkBoxPlugin = require("workbox-webpack-plugin");
 const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 
 dotenv.config();
@@ -69,6 +70,12 @@ module.exports = {
     new MiniCssExtractPlugin({
       filename: "index.css",
       chunkFilename: "[id].css"
+    }),
+    new WorkBoxPlugin.InjectManifest({
+      swSrc: 'src-sw.js',
+      swDest: './sw.js',
+      globDirectory: './assets',
+      globPatterns: ['*.{png,webp,jpg,html,css}']
     })
   ],
   optimization: {

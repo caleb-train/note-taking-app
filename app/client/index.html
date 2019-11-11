@@ -11,5 +11,12 @@
   </head>
   <body>
     <div id="app"></div>
+    <script type="">
+      if('serviceWorker' in navigator){
+        navigator.serviceWorker
+        .register('./sw.js')
+        .catch(err=> console.error('There was a problem', err))
+      }
+    </script>
   </body>
 </html>
