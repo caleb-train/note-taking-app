@@ -7,10 +7,10 @@ const ListNotes = ({ history })=>{
   const {
     isLoading, data, DeleteNote
   } = useListNote()
-
+  console.log(data)
   return isLoading 
   ? <Loader/> 
-  : data.length > 0 ? (
+  : data.length > 0 && data[0] !== null ? (
     data.map((note) => (
       <div key={note.id} className="card-hd">
         <div className={`card rumple ${note.color} h-full`}>
