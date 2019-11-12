@@ -1,4 +1,5 @@
 workbox.precaching.precacheAndRoute(self.__precacheManifest)
+/* workbox.core.skipWaiting(true) */
 
 workbox.routing.registerRoute(
   new RegExp('/api/v1/.*'),

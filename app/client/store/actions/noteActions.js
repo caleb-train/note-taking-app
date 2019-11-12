@@ -66,7 +66,6 @@ export const DeleteNoteAsync = (dispatch, id) => {
     method: 'DELETE', path: `note/${id}`
   })
   .then(res=>{
-    console.log(res.message)
     dispatch(DeleteNote({ data: [null], message: res.message }))
     ListNotesAsync(dispatch)
   })

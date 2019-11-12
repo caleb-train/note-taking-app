@@ -25,13 +25,11 @@ self.addEventListener('fetch', e=>{
     e.respondWith(
       caches.match(e.request)
       .then(res=>{
-        console.log(res)
         if(res) return res;
         return new Response('./offline.html', { headers: {'Content-Type': 'text/html'}})
       })
     )
   }else{
-    console.log(e.request.url)
     e.respondWith(
       fetch(e.request)
       .then(res=>{

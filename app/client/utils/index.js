@@ -19,13 +19,11 @@ export const axiosCall = ({
   .then(result =>{
     const data = result && result.data;
     cb(data);
-    console.error(data)
     return data;
   })
   .catch (e=>{
     cb(e);
     let { error, message } = e;
-    console.error(e)
     throw error || message === 'Network Error' ? 'You are offline' : 'Something went wrong'
   })
 };
