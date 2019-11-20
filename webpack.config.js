@@ -26,8 +26,7 @@ module.exports = {
     extensions: ['.js', '.jsx', '.scss'],
   },
   module: {
-    rules: [
-      {
+    rules: [{
         test: /\.(js|jsx)$/,
         exclude: /node_modules/,
         use: {
@@ -36,16 +35,18 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        use: [
-          { loader: MiniCssExtractPlugin.loader },
+        use: [{
+            loader: MiniCssExtractPlugin.loader
+          },
           "css-loader",
           "postcss-loader"
         ]
       },
       {
         test: /\.scss$/,
-        use: [
-          { loader: MiniCssExtractPlugin.loader },
+        use: [{
+            loader: MiniCssExtractPlugin.loader
+          },
           "css-loader",
           "postcss-loader",
           "sass-loader"
@@ -53,12 +54,10 @@ module.exports = {
       },
       {
         test: /\.(png|jpe?g|gif)$/,
-        use: [
-          {
-            loader: process.env.NODE_ENV === 'development' ? 'file-loader' : 'ignore-loader',
-            options: {},
-          },
-        ],
+        use: [{
+          loader: process.env.NODE_ENV === 'development' ? 'file-loader' : 'ignore-loader',
+          options: {},
+        }, ],
       }
     ]
   },
@@ -76,6 +75,11 @@ module.exports = {
       swDest: './sw.js',
       globDirectory: './assets',
       globPatterns: ['*.{png,webp,jpg,html,css}']
+    }),
+    new webpack.DefinePlugin({
+      'process.env.DOMAIN': JSON.stringify(process.env.DOMAIN),
+      'process.env.CLIENT_ID': JSON.stringify(process.env.CLIENT_ID),
+      'process.env.CALLBACK_URL': JSON.stringify(process.env.CALLBACK),
     })
   ],
   optimization: {

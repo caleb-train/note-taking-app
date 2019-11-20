@@ -9,7 +9,7 @@
     "build:server": "babel app --out-dir public --ignore app/client/**/*.jsx,app/client/**/*.scss,app/client/**/*.js",
     "heroku-postbuild": "npm run build:client && npm run build:server",
     "start": "node public/server/index.js",
-    "dev": "nodemon --exec babel-node app/index.js",
+    "dev": "nodemon --exec babel-node app/server/index.js",
     "dev:server": "npm run heroku-postbuild && npm run dev",
     "dev:client": "webpack-dev-server"
   },
@@ -25,6 +25,7 @@
   "homepage": "https://github.com/caleb-train/note-taking-app#readme",
   "dependencies": {
     "@babel/runtime": "^7.6.3",
+    "auth0-js": "^9.11.3",
     "autoprefixer": "^9.6.0",
     "axios": "^0.19.0",
     "body-parser": "^1.19.0",
@@ -53,6 +54,7 @@
     "@babel/preset-react": "^7.0.0",
     "babel-loader": "^8.0.6",
     "babel-plugin-module-resolver": "^3.2.0",
+    "babel-plugin-transform-class-properties": "^6.24.1",
     "css-loader": "^3.0.0",
     "eslint": "^5.16.0",
     "eslint-config-airbnb-base": "^13.1.0",

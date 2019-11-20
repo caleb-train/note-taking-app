@@ -1,22 +1,43 @@
-import { useEffect, useContext } from 'react'
-import { Context } from '@store/context'
-import { EditNote, Reset, ListNotesAsync, DeleteNoteAsync } from '@store/actions/noteActions'
+import {
+  useEffect,
+  useContext
+} from 'react'
+import {
+  Context
+} from '@store/context'
+import {
+  EditNote,
+  Reset,
+  ListNotesAsync,
+  DeleteNoteAsync
+} from '@store/actions/noteActions'
 import callToast from '@comp/Toast';
 
-const useMakeNote = ()=> {
-  const { dispatch, note: { data, isLoading, message, isErrored } } = useContext(Context)
+const useMakeNote = () => {
+  const {
+    dispatch,
+    note: {
+      data,
+      isLoading,
+      message,
+      isErrored
+    }
+  } = useContext(Context)
 
-  useEffect(()=>{
-    if(message) {
+  useEffect(() => {
+    if (message) {
       callToast(message, isErrored ? 'error' : 'success');
       console.log(message)
-      dispatch(EditNote({message: '', isErrored: false}))
+      dispatch(EditNote({
+        message: '',
+        isErrored: false
+      }))
     }
   }, [JSON.stringify(data)])
-  
-  useEffect(()=>{
+
+  useEffect(() => {
     ListNotesAsync(dispatch)
-    return ()=>dispatch(Reset())
+    return () => dispatch(Reset())
   }, [])
 
   const DeleteNote = noteId => {
@@ -24,8 +45,11 @@ const useMakeNote = ()=> {
   }
 
   return {
-    isLoading, data, DeleteNote,
-    message, isErrored
+    isLoading,
+    data,
+    DeleteNote,
+    message,
+    isErrored
   }
 }
 
