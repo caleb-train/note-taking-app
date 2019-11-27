@@ -21,15 +21,12 @@
         ],
         "alias": {
           "@": "./",
-          "@client": "./app/client",
-          "@utils": "./app/client/utils",
-          "@store": "./app/client/store",
-          "@db": "./app/server/db",
+          "@client": "./client",
+          "@utils": "./client/utils",
+          "@store": "./client/store",
           "@database": "./database.json",
-          "@styles": "./app/client/styles",
-          "@routes": "./app/client/routes",
-          "@guards": "./app/client/guards",
-          "@comp": "./app/client/components"
+          "@styles": "./client/styles",
+          "@comp": "./client/components"
         }
       }
     }

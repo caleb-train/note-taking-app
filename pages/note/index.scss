@@ -1,0 +1,80 @@
+.colorpicker {
+  width: 80%;
+  display: flex;
+  justify-content: space-around;
+  margin: 1.5rem 0;
+
+  div {
+    width: 8rem;
+    height: 8rem;
+    border-radius: 1000px;
+    border: 1px solid rgba(0, 0, 0, .4);
+    opacity: .6;
+    @apply w-8 h-8 rounded-full shadow;
+
+    &.active {
+      @apply opacity-100;
+    }
+  }
+}
+
+.wht {
+  @apply bg-white text-gray-800;
+
+  button {
+    @apply border-gray-800 text-gray-800;
+  }
+}
+
+.blu {
+  @apply bg-blue-200 text-black;
+
+  &.picker {
+    @apply bg-blue-700;
+  }
+
+  button {
+    @apply border-gray-800 text-gray-800;
+  }
+}
+
+.red {
+  @apply bg-red-200 text-black;
+
+  &.picker {
+    @apply bg-red-700;
+  }
+
+  button {
+    @apply border-gray-800 text-gray-800;
+  }
+}
+
+.yel {
+  @apply bg-yellow-200 text-black;
+
+  &.picker {
+    @apply bg-yellow-500;
+  }
+
+  button {
+    @apply border-gray-800 text-gray-800;
+  }
+}
+
+.gray {
+  @apply bg-gray-800 text-white;
+  background-blend-mode: darken;
+
+  &.picker {
+    @apply bg-gray-800
+  }
+
+  button {
+    @apply border-white text-white;
+  }
+}
+
+textarea {
+  height: min-content;
+}

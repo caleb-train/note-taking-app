@@ -1,0 +1,38 @@
+{
+  "env": {
+    "browser": true,
+    "es6": true,
+    "mocha": true
+  },
+  "extends": ["airbnb-base", "eslint:recommended", "plugin:react/recommended"],
+  "globals": {
+    "Atomics": "readonly",
+    "SharedArrayBuffer": "readonly"
+  },
+  "parserOptions": {
+    "ecmaVersion": 2018,
+    "sourceType": "module"
+  },
+  "settings": {
+    "import/resolver": {
+      "babel-module": {
+        "root": [
+          "./"
+        ],
+        "alias": {
+          "@": "./",
+          "@client": "./app/client",
+          "@utils": "./app/client/utils",
+          "@store": "./app/client/store",
+          "@db": "./app/server/db",
+          "@database": "./database.json",
+          "@styles": "./app/client/styles",
+          "@routes": "./app/client/routes",
+          "@guards": "./app/client/guards",
+          "@comp": "./app/client/components"
+        }
+      }
+    }
+  },
+  "rules": {}
+}
