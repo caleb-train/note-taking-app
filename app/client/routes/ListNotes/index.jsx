@@ -8,7 +8,7 @@ const ListNotes = ({ history })=>{
   const {
     isLoading, data, DeleteNote
   } = useListNote()
-  console.log(data)
+  
   return isLoading 
   ? <Loader/> 
   : data.length > 0 && data[0] !== null ? (
