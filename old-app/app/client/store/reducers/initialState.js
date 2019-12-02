@@ -5,5 +5,7 @@ export const note = {
   data: [],
   saveNote: false,
   makeNote: false,
-  editNote: {}
+  editNote: {
+    color: 'wht'
+  }
 }

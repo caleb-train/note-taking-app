@@ -17,14 +17,12 @@ const Nav = props => {
   const navRef = useRef();
   navRef.current = navBackground;
   useEffect(() => {
-    console.log("nav");
     var elem = document.querySelector("main");
     const nextDiv = document.querySelector("body");
     const handleScroll = () => {
       var bounding = elem.getBoundingClientRect();
 
       const show = bounding.y < 50;
-      console.log(bounding, show);
       if (navRef.current !== show) {
         setNavBackground(show);
       }

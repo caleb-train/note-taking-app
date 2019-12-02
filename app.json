@@ -1,0 +1,8 @@
+{
+  "name": "NOTE-APP",
+  "description": "A system that allows efficient, cost-effective mail sending operations",
+  "env": {
+    "NODE_ENV": "production",
+    "SERVER": "https://note-taking-app-server.herokuapp.com"
+  }
+}

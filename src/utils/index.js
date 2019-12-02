@@ -5,7 +5,7 @@ export const axiosCall = ({
   path = '',
   payload = {}
 }) => {
-  const host = 'http://localhost:3000'
+  const host = process.env.SERVER
   const url = `${host}/api/v1/${path}`;
   const headers = {
     'Content-Type': 'application/json',
