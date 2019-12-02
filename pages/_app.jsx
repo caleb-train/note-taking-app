@@ -1,19 +1,31 @@
 import React from "react";
-import App from "next/app";
-import { ToastContainer } from "react-toastify";
+import { Provider } from "react-redux";
 import Nav from "@comp/Nav";
-import { ThemeContext } from "@store/context";
+import { ToastContainer } from "react-toastify";
+import App from "next/app";
+import withRedux from "next-redux-wrapper";
+import { initStore } from "@store";
 import "@styles/main.scss";
 import "@styles/paper.css";
 
 class MyApp extends App {
+  /* static async getInitialProps({ Component, ctx }) {
+    return {
+      pageProps: {
+        ...(Component.getInitialProps
+          ? await Component.getInitialProps(ctx)
+          : {})
+      }
+    };
+  } */
+
   render() {
-    const { Component, pageProps } = this.props;
+    const { Component, store } = this.props;
     return (
-      <ThemeContext>
+      <Provider store={store}>
         <Nav />
         <main>
-          <Component {...pageProps} />
+          <Component />
         </main>
         <ToastContainer
           autoClose={5000}
@@ -22,9 +34,9 @@ class MyApp extends App {
           rtl={false}
           pauseOnHover
         />
-      </ThemeContext>
+      </Provider>
     );
   }
 }
 
-export default MyApp;
+export default withRedux(initStore)(MyApp);

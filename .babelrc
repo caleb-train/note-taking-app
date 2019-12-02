@@ -9,12 +9,11 @@
         ],
         "alias": {
           "@": "./",
-          "@client": "./client",
-          "@utils": "./client/utils",
-          "@store": "./client/store",
-          "@database": "./database.json",
-          "@styles": "./client/styles",
-          "@comp": "./client/components"
+          "@client": "./src",
+          "@utils": "./src/utils",
+          "@store": "./src/store",
+          "@styles": "./src/styles",
+          "@comp": "./src/components"
         }
       }
     ]

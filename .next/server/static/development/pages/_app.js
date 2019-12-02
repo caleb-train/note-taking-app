@@ -93,570 +93,6 @@ module.exports =
 /************************************************************************/
 /******/ ({
 
-/***/ "./client/components/Nav/index.jsx":
-/*!*****************************************!*\
-  !*** ./client/components/Nav/index.jsx ***!
-  \*****************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _store_connect__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../store/connect */ "./client/store/connect.jsx");
-/* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! next/link */ "./node_modules/next/link.js");
-/* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(next_link__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _store_actions_noteActions__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../store/actions/noteActions */ "./client/store/actions/noteActions.js");
-/* harmony import */ var _index_scss__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./index.scss */ "./client/components/Nav/index.scss");
-/* harmony import */ var _index_scss__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_index_scss__WEBPACK_IMPORTED_MODULE_4__);
-var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
-
-
-
-
-
-
-const Nav = props => {
-  const {
-    saveNote,
-    editNote,
-    makeNote,
-    CreateNoteAsync,
-    UpdateNoteAsync
-  } = props;
-  return __jsx("nav", {
-    className: "mainNav px-2 sm:px-8  justify-between"
-  }, __jsx(next_link__WEBPACK_IMPORTED_MODULE_2___default.a, {
-    href: "/"
-  }, __jsx("div", {
-    className: "Logo flex items-center flex-grow"
-  }, __jsx("div", {
-    className: "border-0 logo"
-  }), __jsx("h3", null, "ScrapBook"))), __jsx("div", {
-    className: "w-32 flex flex-row flex-grow-0 justify-around"
-  }, makeNote ? __jsx("button", {
-    className: "btn p-1 px-2 text-white bg-green-600",
-    onClick: _ => CreateNoteAsync(editNote)
-  }, "Create") : __jsx(next_link__WEBPACK_IMPORTED_MODULE_2___default.a, {
-    href: "/note"
-  }, __jsx("button", {
-    className: "btn p-1 px-2"
-  }, "Add")), saveNote ? __jsx("button", {
-    className: "btn p-1 px-2 text-white bg-gray-800",
-    onClick: _ => UpdateNoteAsync(editNote)
-  }, "Save") : null));
-};
-
-const matchStateToProps = ({
-  note: state
-}) => {
-  return {
-    saveNote: state.saveNote,
-    editNote: state.editNote,
-    makeNote: state.makeNote
-  };
-};
-
-const matchDispatchToProps = dispatch => {
-  return {
-    UpdateNoteAsync: _ => _store_actions_noteActions__WEBPACK_IMPORTED_MODULE_3__["UpdateNoteAsync"](dispatch, _),
-    CreateNoteAsync: _ => _store_actions_noteActions__WEBPACK_IMPORTED_MODULE_3__["CreateNoteAsync"](dispatch, _)
-  };
-};
-
-/* harmony default export */ __webpack_exports__["default"] = (Object(_store_connect__WEBPACK_IMPORTED_MODULE_1__["default"])(matchStateToProps, matchDispatchToProps)(Nav));
-
-/***/ }),
-
-/***/ "./client/components/Nav/index.scss":
-/*!******************************************!*\
-  !*** ./client/components/Nav/index.scss ***!
-  \******************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-
-
-/***/ }),
-
-/***/ "./client/store/actions/actionTypes.js":
-/*!*********************************************!*\
-  !*** ./client/store/actions/actionTypes.js ***!
-  \*********************************************/
-/*! exports provided: LIST_NOTES, CREATE_NOTE, EDIT_NOTE, UPDATE_NOTE, DELETE_NOTE, FETCH_ERROR, RESET, GET_NOTE */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LIST_NOTES", function() { return LIST_NOTES; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CREATE_NOTE", function() { return CREATE_NOTE; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "EDIT_NOTE", function() { return EDIT_NOTE; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "UPDATE_NOTE", function() { return UPDATE_NOTE; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DELETE_NOTE", function() { return DELETE_NOTE; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FETCH_ERROR", function() { return FETCH_ERROR; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RESET", function() { return RESET; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "GET_NOTE", function() { return GET_NOTE; });
-const LIST_NOTES = 'LIST_NOTES';
-const CREATE_NOTE = 'CREATE_NOTE';
-const EDIT_NOTE = 'EDIT_NOTE';
-const UPDATE_NOTE = 'UPDATE_NOTE';
-const DELETE_NOTE = 'DELETE_NOTE';
-const FETCH_ERROR = 'FETCH_ERROR';
-const RESET = 'RESET';
-const GET_NOTE = 'GET_NOTE';
-
-/***/ }),
-
-/***/ "./client/store/actions/noteActions.js":
-/*!*********************************************!*\
-  !*** ./client/store/actions/noteActions.js ***!
-  \*********************************************/
-/*! exports provided: ListNotes, GetNote, CreateNote, UpdateNote, DeleteNote, EditNote, ErrorNote, Reset, ListNotesAsync, GetNoteAsync, CreateNoteAsync, UpdateNoteAsync, DeleteNoteAsync */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ListNotes", function() { return ListNotes; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "GetNote", function() { return GetNote; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CreateNote", function() { return CreateNote; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "UpdateNote", function() { return UpdateNote; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DeleteNote", function() { return DeleteNote; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "EditNote", function() { return EditNote; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ErrorNote", function() { return ErrorNote; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Reset", function() { return Reset; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ListNotesAsync", function() { return ListNotesAsync; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "GetNoteAsync", function() { return GetNoteAsync; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CreateNoteAsync", function() { return CreateNoteAsync; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "UpdateNoteAsync", function() { return UpdateNoteAsync; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DeleteNoteAsync", function() { return DeleteNoteAsync; });
-/* harmony import */ var _actionTypes__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./actionTypes */ "./client/store/actions/actionTypes.js");
-/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../utils */ "./client/utils/index.js");
-
-
-/* START ACTIONS */
-
-const ListNotes = payload => ({
-  type: _actionTypes__WEBPACK_IMPORTED_MODULE_0__["LIST_NOTES"],
-  payload
-});
-const GetNote = payload => ({
-  type: _actionTypes__WEBPACK_IMPORTED_MODULE_0__["GET_NOTE"],
-  payload
-});
-const CreateNote = payload => ({
-  type: _actionTypes__WEBPACK_IMPORTED_MODULE_0__["CREATE_NOTE"],
-  payload
-});
-const UpdateNote = payload => ({
-  type: _actionTypes__WEBPACK_IMPORTED_MODULE_0__["UPDATE_NOTE"],
-  payload
-});
-const DeleteNote = payload => ({
-  type: _actionTypes__WEBPACK_IMPORTED_MODULE_0__["DELETE_NOTE"],
-  payload
-});
-const EditNote = payload => ({
-  type: _actionTypes__WEBPACK_IMPORTED_MODULE_0__["EDIT_NOTE"],
-  payload
-});
-const ErrorNote = payload => ({
-  type: _actionTypes__WEBPACK_IMPORTED_MODULE_0__["FETCH_ERROR"],
-  payload
-});
-const Reset = (payload = {}) => ({
-  type: _actionTypes__WEBPACK_IMPORTED_MODULE_0__["RESET"],
-  payload
-});
-/* END ACTIONS */
-
-/* START THUNKS */
-
-const ListNotesAsync = dispatch => {
-  dispatch(Reset());
-  dispatch(EditNote({
-    isLoading: true
-  }));
-  return Object(_utils__WEBPACK_IMPORTED_MODULE_1__["axiosCall"])({
-    path: 'notes/'
-  }).then(res => dispatch(ListNotes(res.data))).catch(message => dispatch(ErrorNote({
-    message
-  })));
-};
-const GetNoteAsync = (dispatch, id) => {
-  dispatch(Reset());
-  dispatch(EditNote({
-    isLoading: true
-  }));
-  return Object(_utils__WEBPACK_IMPORTED_MODULE_1__["axiosCall"])({
-    path: `note/${id}`
-  }).then(res => dispatch(GetNote({
-    data: res.data,
-    editNote: res.data[0],
-    message: res.message
-  }))).catch(message => dispatch(ErrorNote({
-    message
-  })));
-};
-const CreateNoteAsync = (dispatch, payload) => {
-  dispatch(EditNote({
-    isLoading: true
-  }));
-  return Object(_utils__WEBPACK_IMPORTED_MODULE_1__["axiosCall"])({
-    method: 'POST',
-    path: `note`,
-    payload
-  }).then(res => dispatch(CreateNote({
-    message: res.message
-  }))).catch(message => dispatch(ErrorNote({
-    message
-  })));
-};
-const UpdateNoteAsync = (dispatch, payload) => {
-  dispatch(EditNote({
-    isLoading: true
-  }));
-  return Object(_utils__WEBPACK_IMPORTED_MODULE_1__["axiosCall"])({
-    method: 'PATCH',
-    path: `note/${payload.id}`,
-    payload
-  }).then(res => dispatch(UpdateNote({
-    message: res.message
-  }))).catch(message => dispatch(ErrorNote({
-    message
-  })));
-};
-const DeleteNoteAsync = (dispatch, id) => {
-  dispatch(EditNote({
-    isLoading: true
-  }));
-  return Object(_utils__WEBPACK_IMPORTED_MODULE_1__["axiosCall"])({
-    method: 'DELETE',
-    path: `note/${id}`
-  }).then(res => {
-    dispatch(DeleteNote({
-      data: [null],
-      message: res.message
-    }));
-    ListNotesAsync(dispatch);
-  }).catch(message => dispatch(ErrorNote({
-    message
-  })));
-};
-/* END THUNKS */
-
-/***/ }),
-
-/***/ "./client/store/connect.jsx":
-/*!**********************************!*\
-  !*** ./client/store/connect.jsx ***!
-  \**********************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return connect; });
-/* harmony import */ var _babel_runtime_corejs2_core_js_object_define_property__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime-corejs2/core-js/object/define-property */ "./node_modules/@babel/runtime-corejs2/core-js/object/define-property.js");
-/* harmony import */ var _babel_runtime_corejs2_core_js_object_define_property__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_corejs2_core_js_object_define_property__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _babel_runtime_corejs2_core_js_object_define_properties__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime-corejs2/core-js/object/define-properties */ "./node_modules/@babel/runtime-corejs2/core-js/object/define-properties.js");
-/* harmony import */ var _babel_runtime_corejs2_core_js_object_define_properties__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_corejs2_core_js_object_define_properties__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _babel_runtime_corejs2_core_js_object_get_own_property_descriptors__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @babel/runtime-corejs2/core-js/object/get-own-property-descriptors */ "./node_modules/@babel/runtime-corejs2/core-js/object/get-own-property-descriptors.js");
-/* harmony import */ var _babel_runtime_corejs2_core_js_object_get_own_property_descriptors__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_corejs2_core_js_object_get_own_property_descriptors__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _babel_runtime_corejs2_core_js_object_get_own_property_descriptor__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @babel/runtime-corejs2/core-js/object/get-own-property-descriptor */ "./node_modules/@babel/runtime-corejs2/core-js/object/get-own-property-descriptor.js");
-/* harmony import */ var _babel_runtime_corejs2_core_js_object_get_own_property_descriptor__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_corejs2_core_js_object_get_own_property_descriptor__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _babel_runtime_corejs2_core_js_object_get_own_property_symbols__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @babel/runtime-corejs2/core-js/object/get-own-property-symbols */ "./node_modules/@babel/runtime-corejs2/core-js/object/get-own-property-symbols.js");
-/* harmony import */ var _babel_runtime_corejs2_core_js_object_get_own_property_symbols__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_corejs2_core_js_object_get_own_property_symbols__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var _babel_runtime_corejs2_core_js_object_keys__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @babel/runtime-corejs2/core-js/object/keys */ "./node_modules/@babel/runtime-corejs2/core-js/object/keys.js");
-/* harmony import */ var _babel_runtime_corejs2_core_js_object_keys__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_corejs2_core_js_object_keys__WEBPACK_IMPORTED_MODULE_5__);
-/* harmony import */ var _babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/defineProperty */ "./node_modules/@babel/runtime-corejs2/helpers/esm/defineProperty.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react */ "react");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_7__);
-/* harmony import */ var _context__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./context */ "./client/store/context.jsx");
-
-
-
-
-
-
-
-var __jsx = react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement;
-
-function ownKeys(object, enumerableOnly) { var keys = _babel_runtime_corejs2_core_js_object_keys__WEBPACK_IMPORTED_MODULE_5___default()(object); if (_babel_runtime_corejs2_core_js_object_get_own_property_symbols__WEBPACK_IMPORTED_MODULE_4___default.a) { var symbols = _babel_runtime_corejs2_core_js_object_get_own_property_symbols__WEBPACK_IMPORTED_MODULE_4___default()(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return _babel_runtime_corejs2_core_js_object_get_own_property_descriptor__WEBPACK_IMPORTED_MODULE_3___default()(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
-
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(source, true).forEach(function (key) { Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_6__["default"])(target, key, source[key]); }); } else if (_babel_runtime_corejs2_core_js_object_get_own_property_descriptors__WEBPACK_IMPORTED_MODULE_2___default.a) { _babel_runtime_corejs2_core_js_object_define_properties__WEBPACK_IMPORTED_MODULE_1___default()(target, _babel_runtime_corejs2_core_js_object_get_own_property_descriptors__WEBPACK_IMPORTED_MODULE_2___default()(source)); } else { ownKeys(source).forEach(function (key) { _babel_runtime_corejs2_core_js_object_define_property__WEBPACK_IMPORTED_MODULE_0___default()(target, key, _babel_runtime_corejs2_core_js_object_get_own_property_descriptor__WEBPACK_IMPORTED_MODULE_3___default()(source, key)); }); } } return target; }
-
-/* eslint-disable react/display-name */
-
-
-function connect(mapStateToProps, mapDispatchToProps) {
-  return function (Component) {
-    return function () {
-      const {
-        state,
-        dispatch
-      } = Object(react__WEBPACK_IMPORTED_MODULE_7__["useContext"])(_context__WEBPACK_IMPORTED_MODULE_8__["Context"]);
-      const stateToProps = mapStateToProps(state);
-      const dispatchToProps = mapDispatchToProps(dispatch);
-
-      const props = _objectSpread({}, stateToProps, {}, dispatchToProps);
-
-      return __jsx(Component, props);
-    };
-  };
-}
-
-/***/ }),
-
-/***/ "./client/store/context.jsx":
-/*!**********************************!*\
-  !*** ./client/store/context.jsx ***!
-  \**********************************/
-/*! exports provided: Context, ThemeContext */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Context", function() { return Context; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ThemeContext", function() { return ThemeContext; });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _reducers_index__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./reducers/index */ "./client/store/reducers/index.js");
-/* harmony import */ var _reducers_initialState__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./reducers/initialState */ "./client/store/reducers/initialState.js");
-var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
-
-
-
-const Context = Object(react__WEBPACK_IMPORTED_MODULE_0__["createContext"])();
-const ThemeContext = ({
-  children
-}) => {
-  const {
-    0: state,
-    1: dispatch
-  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useReducer"])(_reducers_index__WEBPACK_IMPORTED_MODULE_1__["default"], _reducers_initialState__WEBPACK_IMPORTED_MODULE_2__);
-  return __jsx(Context.Provider, {
-    value: {
-      state,
-      dispatch
-    }
-  }, children);
-};
-
-/***/ }),
-
-/***/ "./client/store/reducers/index.js":
-/*!****************************************!*\
-  !*** ./client/store/reducers/index.js ***!
-  \****************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _noteReducer__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./noteReducer */ "./client/store/reducers/noteReducer.js");
-
-/* harmony default export */ __webpack_exports__["default"] = (function (state, action) {
-  return {
-    note: Object(_noteReducer__WEBPACK_IMPORTED_MODULE_0__["default"])(state.note, action)
-  };
-});
-
-/***/ }),
-
-/***/ "./client/store/reducers/initialState.js":
-/*!***********************************************!*\
-  !*** ./client/store/reducers/initialState.js ***!
-  \***********************************************/
-/*! exports provided: note */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "note", function() { return note; });
-const note = {
-  isLoading: false,
-  isErrored: false,
-  message: '',
-  data: [],
-  saveNote: false,
-  makeNote: false,
-  editNote: {}
-};
-
-/***/ }),
-
-/***/ "./client/store/reducers/noteReducer.js":
-/*!**********************************************!*\
-  !*** ./client/store/reducers/noteReducer.js ***!
-  \**********************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _babel_runtime_corejs2_core_js_object_define_property__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime-corejs2/core-js/object/define-property */ "./node_modules/@babel/runtime-corejs2/core-js/object/define-property.js");
-/* harmony import */ var _babel_runtime_corejs2_core_js_object_define_property__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_corejs2_core_js_object_define_property__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _babel_runtime_corejs2_core_js_object_define_properties__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime-corejs2/core-js/object/define-properties */ "./node_modules/@babel/runtime-corejs2/core-js/object/define-properties.js");
-/* harmony import */ var _babel_runtime_corejs2_core_js_object_define_properties__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_corejs2_core_js_object_define_properties__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _babel_runtime_corejs2_core_js_object_get_own_property_descriptors__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @babel/runtime-corejs2/core-js/object/get-own-property-descriptors */ "./node_modules/@babel/runtime-corejs2/core-js/object/get-own-property-descriptors.js");
-/* harmony import */ var _babel_runtime_corejs2_core_js_object_get_own_property_descriptors__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_corejs2_core_js_object_get_own_property_descriptors__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _babel_runtime_corejs2_core_js_object_get_own_property_descriptor__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @babel/runtime-corejs2/core-js/object/get-own-property-descriptor */ "./node_modules/@babel/runtime-corejs2/core-js/object/get-own-property-descriptor.js");
-/* harmony import */ var _babel_runtime_corejs2_core_js_object_get_own_property_descriptor__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_corejs2_core_js_object_get_own_property_descriptor__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _babel_runtime_corejs2_core_js_object_get_own_property_symbols__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @babel/runtime-corejs2/core-js/object/get-own-property-symbols */ "./node_modules/@babel/runtime-corejs2/core-js/object/get-own-property-symbols.js");
-/* harmony import */ var _babel_runtime_corejs2_core_js_object_get_own_property_symbols__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_corejs2_core_js_object_get_own_property_symbols__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var _babel_runtime_corejs2_core_js_object_keys__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @babel/runtime-corejs2/core-js/object/keys */ "./node_modules/@babel/runtime-corejs2/core-js/object/keys.js");
-/* harmony import */ var _babel_runtime_corejs2_core_js_object_keys__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_corejs2_core_js_object_keys__WEBPACK_IMPORTED_MODULE_5__);
-/* harmony import */ var _babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/defineProperty */ "./node_modules/@babel/runtime-corejs2/helpers/esm/defineProperty.js");
-/* harmony import */ var _actions_actionTypes__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../actions/actionTypes */ "./client/store/actions/actionTypes.js");
-/* harmony import */ var _initialState__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./initialState */ "./client/store/reducers/initialState.js");
-
-
-
-
-
-
-
-
-function ownKeys(object, enumerableOnly) { var keys = _babel_runtime_corejs2_core_js_object_keys__WEBPACK_IMPORTED_MODULE_5___default()(object); if (_babel_runtime_corejs2_core_js_object_get_own_property_symbols__WEBPACK_IMPORTED_MODULE_4___default.a) { var symbols = _babel_runtime_corejs2_core_js_object_get_own_property_symbols__WEBPACK_IMPORTED_MODULE_4___default()(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return _babel_runtime_corejs2_core_js_object_get_own_property_descriptor__WEBPACK_IMPORTED_MODULE_3___default()(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
-
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(source, true).forEach(function (key) { Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_6__["default"])(target, key, source[key]); }); } else if (_babel_runtime_corejs2_core_js_object_get_own_property_descriptors__WEBPACK_IMPORTED_MODULE_2___default.a) { _babel_runtime_corejs2_core_js_object_define_properties__WEBPACK_IMPORTED_MODULE_1___default()(target, _babel_runtime_corejs2_core_js_object_get_own_property_descriptors__WEBPACK_IMPORTED_MODULE_2___default()(source)); } else { ownKeys(source).forEach(function (key) { _babel_runtime_corejs2_core_js_object_define_property__WEBPACK_IMPORTED_MODULE_0___default()(target, key, _babel_runtime_corejs2_core_js_object_get_own_property_descriptor__WEBPACK_IMPORTED_MODULE_3___default()(source, key)); }); } } return target; }
-
-
-
-/* harmony default export */ __webpack_exports__["default"] = (function (state, action) {
-  switch (action.type) {
-    case _actions_actionTypes__WEBPACK_IMPORTED_MODULE_7__["LIST_NOTES"]:
-      return _objectSpread({}, state, {
-        isLoading: false,
-        data: action.payload
-      });
-
-    case _actions_actionTypes__WEBPACK_IMPORTED_MODULE_7__["GET_NOTE"]:
-      return _objectSpread({}, state, {
-        isLoading: false
-      }, action.payload);
-
-    case _actions_actionTypes__WEBPACK_IMPORTED_MODULE_7__["CREATE_NOTE"]:
-      return _objectSpread({}, state, {
-        isErrored: false,
-        makeNote: false,
-        isLoading: false
-      }, action.payload);
-
-    case _actions_actionTypes__WEBPACK_IMPORTED_MODULE_7__["EDIT_NOTE"]:
-      return _objectSpread({}, state, {}, action.payload);
-
-    case _actions_actionTypes__WEBPACK_IMPORTED_MODULE_7__["UPDATE_NOTE"]:
-      return _objectSpread({}, state, {
-        isLoading: false,
-        isErrored: false,
-        makeNote: false,
-        saveNote: false
-      }, action.payload);
-
-    case _actions_actionTypes__WEBPACK_IMPORTED_MODULE_7__["DELETE_NOTE"]:
-      return _objectSpread({}, state, {}, action.payload);
-
-    case _actions_actionTypes__WEBPACK_IMPORTED_MODULE_7__["FETCH_ERROR"]:
-      return _objectSpread({}, state, {
-        data: [null],
-        isLoading: false,
-        isErrored: true,
-        makeNote: false
-      }, action.payload);
-
-    case _actions_actionTypes__WEBPACK_IMPORTED_MODULE_7__["RESET"]:
-      return _objectSpread({}, _initialState__WEBPACK_IMPORTED_MODULE_8__["note"], {}, action.payload);
-
-    default:
-      return state;
-  }
-});
-
-/***/ }),
-
-/***/ "./client/styles/main.scss":
-/*!*********************************!*\
-  !*** ./client/styles/main.scss ***!
-  \*********************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-
-
-/***/ }),
-
-/***/ "./client/styles/paper.css":
-/*!*********************************!*\
-  !*** ./client/styles/paper.css ***!
-  \*********************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-
-
-/***/ }),
-
-/***/ "./client/utils/index.js":
-/*!*******************************!*\
-  !*** ./client/utils/index.js ***!
-  \*******************************/
-/*! exports provided: axiosCall, truncateText, auto_grow */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "axiosCall", function() { return axiosCall; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "truncateText", function() { return truncateText; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "auto_grow", function() { return auto_grow; });
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "axios");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
-
-const axiosCall = ({
-  method = 'GET',
-  path = '',
-  payload = {},
-  cb = _ => {}
-}) => {
-  const url = `/api/v1/${path}`;
-  const headers = {
-    'Content-Type': 'application/json'
-  };
-  const axiosdata = {
-    method,
-    url,
-    data: payload,
-    headers,
-    json: true
-  };
-  return axios__WEBPACK_IMPORTED_MODULE_0___default()(axiosdata).then(result => {
-    const data = result && result.data;
-    cb(data);
-    console.error(data);
-    return data;
-  }).catch(e => {
-    cb(e);
-    let {
-      error,
-      message
-    } = e;
-    console.error(e);
-    throw error || message === 'Network Error' ? 'You are offline' : 'Something went wrong';
-  });
-};
-const truncateText = (content, maxLength) => {
-  if (content.length > maxLength) {
-    content = content.substr(0, maxLength) + '...';
-    return content;
-  } else return content;
-};
-const auto_grow = e => {
-  e.target.style.height = e.target.scrollHeight + "px";
-};
-
-/***/ }),
-
 /***/ "./node_modules/@babel/runtime-corejs2/core-js/map.js":
 /*!************************************************************!*\
   !*** ./node_modules/@babel/runtime-corejs2/core-js/map.js ***!
@@ -2927,16 +2363,20 @@ if (false) {} else {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var next_app__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! next/app */ "./node_modules/next/app.js");
-/* harmony import */ var next_app__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(next_app__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var react_toastify__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-toastify */ "react-toastify");
-/* harmony import */ var react_toastify__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react_toastify__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _client_components_Nav__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../client/components/Nav */ "./client/components/Nav/index.jsx");
-/* harmony import */ var _client_store_context__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../client/store/context */ "./client/store/context.jsx");
-/* harmony import */ var _client_styles_main_scss__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../client/styles/main.scss */ "./client/styles/main.scss");
-/* harmony import */ var _client_styles_main_scss__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_client_styles_main_scss__WEBPACK_IMPORTED_MODULE_5__);
-/* harmony import */ var _client_styles_paper_css__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../client/styles/paper.css */ "./client/styles/paper.css");
-/* harmony import */ var _client_styles_paper_css__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_client_styles_paper_css__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-redux */ "react-redux");
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_redux__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _src_components_Nav__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../src/components/Nav */ "./src/components/Nav/index.jsx");
+/* harmony import */ var react_toastify__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-toastify */ "react-toastify");
+/* harmony import */ var react_toastify__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(react_toastify__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var next_app__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! next/app */ "./node_modules/next/app.js");
+/* harmony import */ var next_app__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(next_app__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var next_redux_wrapper__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! next-redux-wrapper */ "next-redux-wrapper");
+/* harmony import */ var next_redux_wrapper__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(next_redux_wrapper__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _src_store__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../src/store */ "./src/store/index.js");
+/* harmony import */ var _src_styles_main_scss__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../src/styles/main.scss */ "./src/styles/main.scss");
+/* harmony import */ var _src_styles_main_scss__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(_src_styles_main_scss__WEBPACK_IMPORTED_MODULE_7__);
+/* harmony import */ var _src_styles_paper_css__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../src/styles/paper.css */ "./src/styles/paper.css");
+/* harmony import */ var _src_styles_paper_css__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(_src_styles_paper_css__WEBPACK_IMPORTED_MODULE_8__);
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 
@@ -2946,13 +2386,26 @@ var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 
 
-class MyApp extends next_app__WEBPACK_IMPORTED_MODULE_1___default.a {
+
+
+class MyApp extends next_app__WEBPACK_IMPORTED_MODULE_4___default.a {
+  /* static async getInitialProps({ Component, ctx }) {
+    return {
+      pageProps: {
+        ...(Component.getInitialProps
+          ? await Component.getInitialProps(ctx)
+          : {})
+      }
+    };
+  } */
   render() {
     const {
       Component,
-      pageProps
+      store
     } = this.props;
-    return __jsx(_client_store_context__WEBPACK_IMPORTED_MODULE_4__["ThemeContext"], null, __jsx(_client_components_Nav__WEBPACK_IMPORTED_MODULE_3__["default"], null), __jsx("main", null, __jsx(Component, pageProps)), __jsx(react_toastify__WEBPACK_IMPORTED_MODULE_2__["ToastContainer"], {
+    return __jsx(react_redux__WEBPACK_IMPORTED_MODULE_1__["Provider"], {
+      store: store
+    }, __jsx(_src_components_Nav__WEBPACK_IMPORTED_MODULE_2__["default"], null), __jsx("main", null, __jsx(Component, null)), __jsx(react_toastify__WEBPACK_IMPORTED_MODULE_3__["ToastContainer"], {
       autoClose: 5000,
       position: "top-center",
       hideProgressBar: true,
@@ -2963,7 +2416,566 @@ class MyApp extends next_app__WEBPACK_IMPORTED_MODULE_1___default.a {
 
 }
 
-/* harmony default export */ __webpack_exports__["default"] = (MyApp);
+/* harmony default export */ __webpack_exports__["default"] = (next_redux_wrapper__WEBPACK_IMPORTED_MODULE_5___default()(_src_store__WEBPACK_IMPORTED_MODULE_6__["initStore"])(MyApp));
+
+/***/ }),
+
+/***/ "./src/components/Nav/index.jsx":
+/*!**************************************!*\
+  !*** ./src/components/Nav/index.jsx ***!
+  \**************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-redux */ "react-redux");
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_redux__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! next/link */ "./node_modules/next/link.js");
+/* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(next_link__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _store_actions_noteActions__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../store/actions/noteActions */ "./src/store/actions/noteActions.js");
+/* harmony import */ var _index_scss__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./index.scss */ "./src/components/Nav/index.scss");
+/* harmony import */ var _index_scss__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_index_scss__WEBPACK_IMPORTED_MODULE_4__);
+var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
+
+
+
+
+
+
+const Nav = props => {
+  const {
+    saveNote,
+    editNote,
+    makeNote,
+    CreateNoteAsync,
+    UpdateNoteAsync
+  } = props;
+  const {
+    0: navBackground,
+    1: setNavBackground
+  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(false);
+  const navRef = Object(react__WEBPACK_IMPORTED_MODULE_0__["useRef"])();
+  navRef.current = navBackground;
+  Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(() => {
+    console.log("nav");
+    var elem = document.querySelector("main");
+    const nextDiv = document.querySelector("body");
+
+    const handleScroll = () => {
+      var bounding = elem.getBoundingClientRect();
+      const show = bounding.y < 50;
+      console.log(bounding, show);
+
+      if (navRef.current !== show) {
+        setNavBackground(show);
+      }
+    };
+
+    nextDiv.addEventListener("scroll", handleScroll);
+    return () => {
+      nextDiv.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+  return __jsx("nav", {
+    className: `mainNav px-2 sm:px-8  justify-between ${navBackground ? "scroll" : ""}`
+  }, __jsx(next_link__WEBPACK_IMPORTED_MODULE_2___default.a, {
+    href: "/"
+  }, __jsx("div", {
+    className: `Logo flex items-center ${navBackground ? "scale" : ""}`
+  }, __jsx("div", {
+    className: "border-0 logo"
+  }), __jsx("h3", null, "ScrapBook"))), __jsx("div", {
+    className: `actions w-32 flex flex-row flex-grow-0 justify-end ${navBackground ? "scale" : ""}`
+  }, makeNote ? __jsx("button", {
+    className: "btn p-1 px-2 text-white bg-green-600",
+    onClick: _ => CreateNoteAsync(editNote)
+  }, "Create") : __jsx(next_link__WEBPACK_IMPORTED_MODULE_2___default.a, {
+    href: "/note"
+  }, __jsx("button", {
+    className: "btn p-1 px-2"
+  }, "Add")), saveNote ? __jsx("button", {
+    className: "btn p-1 px-2 text-white bg-gray-800",
+    onClick: _ => UpdateNoteAsync(editNote)
+  }, "Save") : null));
+};
+
+const matchStateToProps = ({
+  note: state
+}) => {
+  return {
+    saveNote: state.saveNote,
+    editNote: state.editNote,
+    makeNote: state.makeNote
+  };
+};
+
+const matchDispatchToProps = {
+  UpdateNoteAsync: _store_actions_noteActions__WEBPACK_IMPORTED_MODULE_3__["UpdateNoteAsync"],
+  CreateNoteAsync: _store_actions_noteActions__WEBPACK_IMPORTED_MODULE_3__["CreateNoteAsync"]
+};
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_1__["connect"])(matchStateToProps, matchDispatchToProps)(Nav));
+
+/***/ }),
+
+/***/ "./src/components/Nav/index.scss":
+/*!***************************************!*\
+  !*** ./src/components/Nav/index.scss ***!
+  \***************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+
+
+/***/ }),
+
+/***/ "./src/store/actions/actionTypes.js":
+/*!******************************************!*\
+  !*** ./src/store/actions/actionTypes.js ***!
+  \******************************************/
+/*! exports provided: LIST_NOTES, CREATE_NOTE, EDIT_NOTE, UPDATE_NOTE, DELETE_NOTE, FETCH_ERROR, RESET, GET_NOTE */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LIST_NOTES", function() { return LIST_NOTES; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CREATE_NOTE", function() { return CREATE_NOTE; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "EDIT_NOTE", function() { return EDIT_NOTE; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "UPDATE_NOTE", function() { return UPDATE_NOTE; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DELETE_NOTE", function() { return DELETE_NOTE; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FETCH_ERROR", function() { return FETCH_ERROR; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RESET", function() { return RESET; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "GET_NOTE", function() { return GET_NOTE; });
+const LIST_NOTES = 'LIST_NOTES';
+const CREATE_NOTE = 'CREATE_NOTE';
+const EDIT_NOTE = 'EDIT_NOTE';
+const UPDATE_NOTE = 'UPDATE_NOTE';
+const DELETE_NOTE = 'DELETE_NOTE';
+const FETCH_ERROR = 'FETCH_ERROR';
+const RESET = 'RESET';
+const GET_NOTE = 'GET_NOTE';
+
+/***/ }),
+
+/***/ "./src/store/actions/noteActions.js":
+/*!******************************************!*\
+  !*** ./src/store/actions/noteActions.js ***!
+  \******************************************/
+/*! exports provided: ListNotes, GetNote, CreateNote, UpdateNote, DeleteNote, EditNote, ErrorNote, Reset, ListNotesAsync, GetNoteAsync, CreateNoteAsync, UpdateNoteAsync, DeleteNoteAsync */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ListNotes", function() { return ListNotes; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "GetNote", function() { return GetNote; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CreateNote", function() { return CreateNote; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "UpdateNote", function() { return UpdateNote; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DeleteNote", function() { return DeleteNote; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "EditNote", function() { return EditNote; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ErrorNote", function() { return ErrorNote; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Reset", function() { return Reset; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ListNotesAsync", function() { return ListNotesAsync; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "GetNoteAsync", function() { return GetNoteAsync; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CreateNoteAsync", function() { return CreateNoteAsync; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "UpdateNoteAsync", function() { return UpdateNoteAsync; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DeleteNoteAsync", function() { return DeleteNoteAsync; });
+/* harmony import */ var _actionTypes__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./actionTypes */ "./src/store/actions/actionTypes.js");
+/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../utils */ "./src/utils/index.js");
+
+
+/* START ACTIONS */
+
+const ListNotes = payload => ({
+  type: _actionTypes__WEBPACK_IMPORTED_MODULE_0__["LIST_NOTES"],
+  payload
+});
+const GetNote = payload => ({
+  type: _actionTypes__WEBPACK_IMPORTED_MODULE_0__["GET_NOTE"],
+  payload
+});
+const CreateNote = payload => ({
+  type: _actionTypes__WEBPACK_IMPORTED_MODULE_0__["CREATE_NOTE"],
+  payload
+});
+const UpdateNote = payload => ({
+  type: _actionTypes__WEBPACK_IMPORTED_MODULE_0__["UPDATE_NOTE"],
+  payload
+});
+const DeleteNote = payload => ({
+  type: _actionTypes__WEBPACK_IMPORTED_MODULE_0__["DELETE_NOTE"],
+  payload
+});
+const EditNote = payload => ({
+  type: _actionTypes__WEBPACK_IMPORTED_MODULE_0__["EDIT_NOTE"],
+  payload
+});
+const ErrorNote = payload => ({
+  type: _actionTypes__WEBPACK_IMPORTED_MODULE_0__["FETCH_ERROR"],
+  payload
+});
+const Reset = (payload = {}) => ({
+  type: _actionTypes__WEBPACK_IMPORTED_MODULE_0__["RESET"],
+  payload
+});
+/* END ACTIONS */
+
+/* START THUNKS */
+
+const ListNotesAsync = _ => {
+  return dispatch => {
+    dispatch(Reset());
+    dispatch(EditNote({
+      isLoading: true
+    }));
+    console.log('ssss');
+    Object(_utils__WEBPACK_IMPORTED_MODULE_1__["axiosCall"])({
+      path: 'notes/'
+    }).then(res => dispatch(ListNotes(res.data))).catch(message => dispatch(ErrorNote({
+      message
+    })));
+  };
+};
+const GetNoteAsync = id => {
+  return dispatch => {
+    dispatch(Reset());
+    dispatch(EditNote({
+      isLoading: true
+    }));
+    Object(_utils__WEBPACK_IMPORTED_MODULE_1__["axiosCall"])({
+      path: `note/${id}`
+    }).then(res => dispatch(GetNote({
+      data: res.data,
+      editNote: res.data[0],
+      message: res.message
+    }))).catch(message => dispatch(ErrorNote({
+      message
+    })));
+  };
+};
+const CreateNoteAsync = payload => {
+  return dispatch => {
+    dispatch(EditNote({
+      isLoading: true
+    }));
+    return Object(_utils__WEBPACK_IMPORTED_MODULE_1__["axiosCall"])({
+      method: 'POST',
+      path: `note`,
+      payload
+    }).then(res => {
+      console.log(res);
+      dispatch(CreateNote({
+        message: res.message
+      }));
+    }).catch(message => {
+      console.log(message);
+      dispatch(ErrorNote({
+        message
+      }));
+    });
+  };
+};
+const UpdateNoteAsync = payload => {
+  return dispatch => {
+    dispatch(EditNote({
+      isLoading: true
+    }));
+    Object(_utils__WEBPACK_IMPORTED_MODULE_1__["axiosCall"])({
+      method: 'PATCH',
+      path: `note/${payload.id}`,
+      payload
+    }).then(res => dispatch(UpdateNote({
+      message: res.message
+    }))).catch(message => dispatch(ErrorNote({
+      message
+    })));
+  };
+};
+const DeleteNoteAsync = id => {
+  return dispatch => {
+    dispatch(EditNote({
+      isLoading: true
+    }));
+    Object(_utils__WEBPACK_IMPORTED_MODULE_1__["axiosCall"])({
+      method: 'DELETE',
+      path: `note/${id}`
+    }).then(res => {
+      dispatch(DeleteNote({
+        data: [null],
+        message: res.message
+      }));
+      dispatch(ListNotesAsync(dispatch));
+    }).catch(message => dispatch(ErrorNote({
+      message
+    })));
+  };
+};
+/* END THUNKS */
+
+/***/ }),
+
+/***/ "./src/store/index.js":
+/*!****************************!*\
+  !*** ./src/store/index.js ***!
+  \****************************/
+/*! exports provided: initStore */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "initStore", function() { return initStore; });
+/* harmony import */ var redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! redux */ "redux");
+/* harmony import */ var redux__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(redux__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var redux_thunk__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! redux-thunk */ "redux-thunk");
+/* harmony import */ var redux_thunk__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(redux_thunk__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _reducers__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./reducers */ "./src/store/reducers/index.js");
+/* import {
+  createStore,
+  applyMiddleware
+} from 'redux';
+import createSagaMiddleware from 'redux-saga';
+import {
+  composeWithDevTools
+} from 'redux-devtools-extension/developmentOnly';
+import combineReducers from './reducers';
+
+import rootSaga from './sagas';
+
+const sagaMiddleware = createSagaMiddleware();
+const middlewares = applyMiddleware(sagaMiddleware);
+
+const makeStore = (initialState) => {
+  const store = createStore(
+    combineReducers,
+    initialState,
+    composeWithDevTools(middlewares),
+  );
+  sagaMiddleware.run(rootSaga);
+  return store;
+};
+
+export default makeStore; */
+
+
+
+const initStore = (initialState = {}) => {
+  return Object(redux__WEBPACK_IMPORTED_MODULE_0__["createStore"])(_reducers__WEBPACK_IMPORTED_MODULE_2__["default"], initialState, Object(redux__WEBPACK_IMPORTED_MODULE_0__["applyMiddleware"])(redux_thunk__WEBPACK_IMPORTED_MODULE_1___default.a));
+};
+
+/***/ }),
+
+/***/ "./src/store/reducers/index.js":
+/*!*************************************!*\
+  !*** ./src/store/reducers/index.js ***!
+  \*************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! redux */ "redux");
+/* harmony import */ var redux__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(redux__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _noteReducer__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./noteReducer */ "./src/store/reducers/noteReducer.js");
+
+
+const reducers = Object(redux__WEBPACK_IMPORTED_MODULE_0__["combineReducers"])({
+  note: _noteReducer__WEBPACK_IMPORTED_MODULE_1__["default"]
+});
+/* harmony default export */ __webpack_exports__["default"] = (reducers);
+
+/***/ }),
+
+/***/ "./src/store/reducers/initialState.js":
+/*!********************************************!*\
+  !*** ./src/store/reducers/initialState.js ***!
+  \********************************************/
+/*! exports provided: note */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "note", function() { return note; });
+const note = {
+  isLoading: false,
+  isErrored: false,
+  message: '',
+  data: [],
+  saveNote: false,
+  makeNote: false,
+  editNote: {
+    color: 'wht'
+  }
+};
+
+/***/ }),
+
+/***/ "./src/store/reducers/noteReducer.js":
+/*!*******************************************!*\
+  !*** ./src/store/reducers/noteReducer.js ***!
+  \*******************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _babel_runtime_corejs2_core_js_object_define_property__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime-corejs2/core-js/object/define-property */ "./node_modules/@babel/runtime-corejs2/core-js/object/define-property.js");
+/* harmony import */ var _babel_runtime_corejs2_core_js_object_define_property__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_corejs2_core_js_object_define_property__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _babel_runtime_corejs2_core_js_object_define_properties__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime-corejs2/core-js/object/define-properties */ "./node_modules/@babel/runtime-corejs2/core-js/object/define-properties.js");
+/* harmony import */ var _babel_runtime_corejs2_core_js_object_define_properties__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_corejs2_core_js_object_define_properties__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _babel_runtime_corejs2_core_js_object_get_own_property_descriptors__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @babel/runtime-corejs2/core-js/object/get-own-property-descriptors */ "./node_modules/@babel/runtime-corejs2/core-js/object/get-own-property-descriptors.js");
+/* harmony import */ var _babel_runtime_corejs2_core_js_object_get_own_property_descriptors__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_corejs2_core_js_object_get_own_property_descriptors__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _babel_runtime_corejs2_core_js_object_get_own_property_descriptor__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @babel/runtime-corejs2/core-js/object/get-own-property-descriptor */ "./node_modules/@babel/runtime-corejs2/core-js/object/get-own-property-descriptor.js");
+/* harmony import */ var _babel_runtime_corejs2_core_js_object_get_own_property_descriptor__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_corejs2_core_js_object_get_own_property_descriptor__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _babel_runtime_corejs2_core_js_object_get_own_property_symbols__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @babel/runtime-corejs2/core-js/object/get-own-property-symbols */ "./node_modules/@babel/runtime-corejs2/core-js/object/get-own-property-symbols.js");
+/* harmony import */ var _babel_runtime_corejs2_core_js_object_get_own_property_symbols__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_corejs2_core_js_object_get_own_property_symbols__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _babel_runtime_corejs2_core_js_object_keys__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @babel/runtime-corejs2/core-js/object/keys */ "./node_modules/@babel/runtime-corejs2/core-js/object/keys.js");
+/* harmony import */ var _babel_runtime_corejs2_core_js_object_keys__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_corejs2_core_js_object_keys__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/defineProperty */ "./node_modules/@babel/runtime-corejs2/helpers/esm/defineProperty.js");
+/* harmony import */ var _actions_actionTypes__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../actions/actionTypes */ "./src/store/actions/actionTypes.js");
+/* harmony import */ var _initialState__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./initialState */ "./src/store/reducers/initialState.js");
+
+
+
+
+
+
+
+
+function ownKeys(object, enumerableOnly) { var keys = _babel_runtime_corejs2_core_js_object_keys__WEBPACK_IMPORTED_MODULE_5___default()(object); if (_babel_runtime_corejs2_core_js_object_get_own_property_symbols__WEBPACK_IMPORTED_MODULE_4___default.a) { var symbols = _babel_runtime_corejs2_core_js_object_get_own_property_symbols__WEBPACK_IMPORTED_MODULE_4___default()(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return _babel_runtime_corejs2_core_js_object_get_own_property_descriptor__WEBPACK_IMPORTED_MODULE_3___default()(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(source, true).forEach(function (key) { Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_6__["default"])(target, key, source[key]); }); } else if (_babel_runtime_corejs2_core_js_object_get_own_property_descriptors__WEBPACK_IMPORTED_MODULE_2___default.a) { _babel_runtime_corejs2_core_js_object_define_properties__WEBPACK_IMPORTED_MODULE_1___default()(target, _babel_runtime_corejs2_core_js_object_get_own_property_descriptors__WEBPACK_IMPORTED_MODULE_2___default()(source)); } else { ownKeys(source).forEach(function (key) { _babel_runtime_corejs2_core_js_object_define_property__WEBPACK_IMPORTED_MODULE_0___default()(target, key, _babel_runtime_corejs2_core_js_object_get_own_property_descriptor__WEBPACK_IMPORTED_MODULE_3___default()(source, key)); }); } } return target; }
+
+
+
+/* harmony default export */ __webpack_exports__["default"] = (function (state = _initialState__WEBPACK_IMPORTED_MODULE_8__["note"], action) {
+  switch (action.type) {
+    case _actions_actionTypes__WEBPACK_IMPORTED_MODULE_7__["LIST_NOTES"]:
+      return _objectSpread({}, state, {
+        isLoading: false,
+        data: action.payload
+      });
+
+    case _actions_actionTypes__WEBPACK_IMPORTED_MODULE_7__["GET_NOTE"]:
+      return _objectSpread({}, state, {
+        isLoading: false
+      }, action.payload);
+
+    case _actions_actionTypes__WEBPACK_IMPORTED_MODULE_7__["CREATE_NOTE"]:
+      return _objectSpread({}, state, {
+        isErrored: false,
+        makeNote: false,
+        isLoading: false
+      }, action.payload);
+
+    case _actions_actionTypes__WEBPACK_IMPORTED_MODULE_7__["EDIT_NOTE"]:
+      return _objectSpread({}, state, {}, action.payload);
+
+    case _actions_actionTypes__WEBPACK_IMPORTED_MODULE_7__["UPDATE_NOTE"]:
+      return _objectSpread({}, state, {
+        isLoading: false,
+        isErrored: false,
+        makeNote: false,
+        saveNote: false
+      }, action.payload);
+
+    case _actions_actionTypes__WEBPACK_IMPORTED_MODULE_7__["DELETE_NOTE"]:
+      return _objectSpread({}, state, {}, action.payload);
+
+    case _actions_actionTypes__WEBPACK_IMPORTED_MODULE_7__["FETCH_ERROR"]:
+      return _objectSpread({}, state, {
+        data: [null],
+        isLoading: false,
+        isErrored: true,
+        makeNote: false
+      }, action.payload);
+
+    case _actions_actionTypes__WEBPACK_IMPORTED_MODULE_7__["RESET"]:
+      return _objectSpread({}, _initialState__WEBPACK_IMPORTED_MODULE_8__["note"], {}, action.payload);
+
+    default:
+      return state;
+  }
+});
+
+/***/ }),
+
+/***/ "./src/styles/main.scss":
+/*!******************************!*\
+  !*** ./src/styles/main.scss ***!
+  \******************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+
+
+/***/ }),
+
+/***/ "./src/styles/paper.css":
+/*!******************************!*\
+  !*** ./src/styles/paper.css ***!
+  \******************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+
+
+/***/ }),
+
+/***/ "./src/utils/index.js":
+/*!****************************!*\
+  !*** ./src/utils/index.js ***!
+  \****************************/
+/*! exports provided: axiosCall, truncateText, auto_grow */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "axiosCall", function() { return axiosCall; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "truncateText", function() { return truncateText; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "auto_grow", function() { return auto_grow; });
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "axios");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
+
+const axiosCall = ({
+  method = 'GET',
+  path = '',
+  payload = {}
+}) => {
+  const host = 'http://localhost:3000';
+  const url = `${host}/api/v1/${path}`;
+  const headers = {
+    'Content-Type': 'application/json'
+  };
+  const axiosdata = {
+    method,
+    url,
+    data: payload,
+    headers,
+    json: true
+  };
+  return axios__WEBPACK_IMPORTED_MODULE_0___default()(axiosdata).then(result => {
+    const data = result && result.data;
+    console.log(data);
+    return data;
+  }).catch(e => {
+    let {
+      error,
+      message
+    } = e;
+    console.error(e);
+    throw error || message === 'Network Error' ? 'You are offline' : 'Something went wrong';
+  });
+};
+const truncateText = (content, maxLength) => {
+  if (content.length > maxLength) {
+    content = content.substr(0, maxLength) + '...';
+    return content;
+  } else return content;
+};
+const auto_grow = e => {
+  e.target.style.height = e.target.scrollHeight + "px";
+};
 
 /***/ }),
 
@@ -3111,6 +3123,17 @@ module.exports = require("core-js/library/fn/weak-map");
 
 /***/ }),
 
+/***/ "next-redux-wrapper":
+/*!*************************************!*\
+  !*** external "next-redux-wrapper" ***!
+  \*************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("next-redux-wrapper");
+
+/***/ }),
+
 /***/ "prop-types":
 /*!*****************************!*\
   !*** external "prop-types" ***!
@@ -3144,6 +3167,17 @@ module.exports = require("react");
 
 /***/ }),
 
+/***/ "react-redux":
+/*!******************************!*\
+  !*** external "react-redux" ***!
+  \******************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("react-redux");
+
+/***/ }),
+
 /***/ "react-toastify":
 /*!*********************************!*\
   !*** external "react-toastify" ***!
@@ -3152,6 +3186,28 @@ module.exports = require("react");
 /***/ (function(module, exports) {
 
 module.exports = require("react-toastify");
+
+/***/ }),
+
+/***/ "redux":
+/*!************************!*\
+  !*** external "redux" ***!
+  \************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("redux");
+
+/***/ }),
+
+/***/ "redux-thunk":
+/*!******************************!*\
+  !*** external "redux-thunk" ***!
+  \******************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("redux-thunk");
 
 /***/ }),
 

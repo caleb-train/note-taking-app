@@ -1,12 +1,12 @@
 import React from "react";
-import { useRouter } from "next/router";
+import Router, { useRouter } from "next/router";
+import { connect } from "react-redux";
+import useViewNote from "@client/hooks/useViewNote";
 import {
   matchStateToProps,
   matchDispatchToProps
 } from "@client/matchProps/ViewNote";
-import useViewNote from "@client/hooks/useViewNote";
 import Loader from "@comp/Loader";
-import connect from "@store/connect";
 import ColorPicker, { pickColor } from "@comp/ColorPicker";
 import { auto_grow } from "@utils";
 import "./index.scss";
@@ -15,12 +15,13 @@ const ViewNote = props => {
   const router = useRouter();
   const { id } = router.query;
 
+  console.log(props);
   const { editNote, isLoading, updateNote, message } = useViewNote(id, props);
+
+  if (message) Router.push("/");
 
   return isLoading ? (
     <Loader />
-  ) : message ? (
-    router.push("/")
   ) : (
     (editNote && (
       <div className="w-4/5 md:w-3/5 h-full flex flex-col mx-auto">
@@ -38,6 +39,9 @@ const ViewNote = props => {
           />
         </section>
         <section className="h-4/5">
+          <h5 className="mx-auto mb-6 text-center">
+            Change something to make edits
+          </h5>
           <textarea
             onInput={auto_grow}
             onChange={updateNote}
@@ -46,17 +50,10 @@ const ViewNote = props => {
             className={`w-full md:p-8 p-6 rumple outline-none min-h-4/5 text-sm font-montserrat ${editNote.color ||
               "wht"}`}
           ></textarea>
-          <h5 className="mx-auto my-6 text-center">
-            Make edits by simply changing the texts or color
-          </h5>
         </section>
       </div>
     )) || <Loader />
   );
-};
-
-ViewNote.getInitialProps = props => {
-  console.log(props);
 };
 
 export default connect(matchStateToProps, matchDispatchToProps)(ViewNote);

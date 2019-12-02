@@ -1,22 +1,21 @@
 import React from "react";
-import Loader from "@comp/Loader";
+import { connect } from "react-redux";
 import Router from "next/router";
-import connect from "@store/connect";
 import {
   matchStateToProps,
   matchDispatchToProps
 } from "@client/matchProps/ListNotes";
 import useListNote from "@client/hooks/useListNote";
+import Loader from "@comp/Loader";
 import { truncateText } from "@utils";
-import "./index.scss";
+import "@styles/index.scss";
 
 const ListNotes = props => {
-  console.log(props);
   const { isLoading, data, DeleteNote } = useListNote(props);
 
   return isLoading ? (
     <Loader />
-  ) : data.length > 0 && data[0] !== null ? (
+  ) : data && data.length > 0 && data[0] !== null ? (
     data.map(note => (
       <div key={note.id} className="card-hd">
         <div className={`card rumple ${note.color} h-full`}>
