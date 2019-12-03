@@ -18706,17 +18706,20 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var next_app__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! next/app */ "./node_modules/next/app.js");
 /* harmony import */ var next_app__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(next_app__WEBPACK_IMPORTED_MODULE_9__);
 /* harmony import */ var next_redux_wrapper__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! next-redux-wrapper */ "./node_modules/next-redux-wrapper/es6/index.js");
-/* harmony import */ var _src_store__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../src/store */ "./src/store/index.js");
-/* harmony import */ var _src_styles_main_scss__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../src/styles/main.scss */ "./src/styles/main.scss");
-/* harmony import */ var _src_styles_main_scss__WEBPACK_IMPORTED_MODULE_12___default = /*#__PURE__*/__webpack_require__.n(_src_styles_main_scss__WEBPACK_IMPORTED_MODULE_12__);
-/* harmony import */ var _src_styles_paper_css__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ../src/styles/paper.css */ "./src/styles/paper.css");
-/* harmony import */ var _src_styles_paper_css__WEBPACK_IMPORTED_MODULE_13___default = /*#__PURE__*/__webpack_require__.n(_src_styles_paper_css__WEBPACK_IMPORTED_MODULE_13__);
+/* harmony import */ var _src_styles_css__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../src/styles/css */ "./src/styles/css.js");
+/* harmony import */ var _src_styles_css__WEBPACK_IMPORTED_MODULE_11___default = /*#__PURE__*/__webpack_require__.n(_src_styles_css__WEBPACK_IMPORTED_MODULE_11__);
+/* harmony import */ var _src_store__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../src/store */ "./src/store/index.js");
+/* harmony import */ var _src_styles_main_scss__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ../src/styles/main.scss */ "./src/styles/main.scss");
+/* harmony import */ var _src_styles_main_scss__WEBPACK_IMPORTED_MODULE_13___default = /*#__PURE__*/__webpack_require__.n(_src_styles_main_scss__WEBPACK_IMPORTED_MODULE_13__);
+/* harmony import */ var _src_styles_paper_css__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ../src/styles/paper.css */ "./src/styles/paper.css");
+/* harmony import */ var _src_styles_paper_css__WEBPACK_IMPORTED_MODULE_14___default = /*#__PURE__*/__webpack_require__.n(_src_styles_paper_css__WEBPACK_IMPORTED_MODULE_14__);
 
 
 
 
 
 var __jsx = react__WEBPACK_IMPORTED_MODULE_5___default.a.createElement;
+
 
 
 
@@ -18756,7 +18759,9 @@ function (_App) {
           store = _this$props.store;
       return __jsx(react_redux__WEBPACK_IMPORTED_MODULE_6__["Provider"], {
         store: store
-      }, __jsx(_src_components_Nav__WEBPACK_IMPORTED_MODULE_7__["default"], null), __jsx("main", null, __jsx(Component, null)), __jsx(react_toastify__WEBPACK_IMPORTED_MODULE_8__["ToastContainer"], {
+      }, __jsx(_src_components_Nav__WEBPACK_IMPORTED_MODULE_7__["default"], null), __jsx("main", {
+        style: _src_styles_css__WEBPACK_IMPORTED_MODULE_11___default.a.bg
+      }, __jsx(Component, null)), __jsx(react_toastify__WEBPACK_IMPORTED_MODULE_8__["ToastContainer"], {
         autoClose: 5000,
         position: "top-center",
         hideProgressBar: true,
@@ -18769,7 +18774,7 @@ function (_App) {
   return MyApp;
 }(next_app__WEBPACK_IMPORTED_MODULE_9___default.a);
 
-/* harmony default export */ __webpack_exports__["default"] = (Object(next_redux_wrapper__WEBPACK_IMPORTED_MODULE_10__["default"])(_src_store__WEBPACK_IMPORTED_MODULE_11__["initStore"])(MyApp));
+/* harmony default export */ __webpack_exports__["default"] = (Object(next_redux_wrapper__WEBPACK_IMPORTED_MODULE_10__["default"])(_src_store__WEBPACK_IMPORTED_MODULE_12__["initStore"])(MyApp));
 
 /***/ }),
 
@@ -18788,9 +18793,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! next/link */ "./node_modules/next/link.js");
 /* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(next_link__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var _store_actions_noteActions__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../store/actions/noteActions */ "./src/store/actions/noteActions.js");
-/* harmony import */ var _index_scss__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./index.scss */ "./src/components/Nav/index.scss");
-/* harmony import */ var _index_scss__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_index_scss__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _styles_css__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../styles/css */ "./src/styles/css.js");
+/* harmony import */ var _styles_css__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_styles_css__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _index_scss__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./index.scss */ "./src/components/Nav/index.scss");
+/* harmony import */ var _index_scss__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_index_scss__WEBPACK_IMPORTED_MODULE_5__);
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
+
 
 
 
@@ -18829,7 +18837,8 @@ var Nav = function Nav(props) {
     };
   }, []);
   return __jsx("nav", {
-    className: "mainNav px-2 sm:px-8  justify-between ".concat(navBackground ? "scroll" : "")
+    className: "mainNav px-2 sm:px-8  justify-between ".concat(navBackground ? "scroll" : ""),
+    style: _styles_css__WEBPACK_IMPORTED_MODULE_4___default.a.logo
   }, __jsx(next_link__WEBPACK_IMPORTED_MODULE_2___default.a, {
     href: "/"
   }, __jsx("div", {
@@ -19273,6 +19282,30 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 
 /***/ }),
 
+/***/ "./src/styles/css.js":
+/*!***************************!*\
+  !*** ./src/styles/css.js ***!
+  \***************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = {
+  logo: {
+    background: "url(\"".concat("note-taking-app/", "/note-logo.png\")")
+  },
+  bg: {
+    background: "radial-gradient(\n      rgba(250, 250, 250, 0.85),\n      rgba(250, 250, 250, 1)\n    ),\n    url(\"".concat("note-taking-app/", "/bg-what.webp\")")
+  },
+  emptyicon: {
+    background: "url('".concat("note-taking-app/", "/write.png')")
+  },
+  rumple: {
+    background: "url('".concat("note-taking-app/", "/crumpled-paper.webp')")
+  }
+};
+
+/***/ }),
+
 /***/ "./src/utils/index.js":
 /*!****************************!*\
   !*** ./src/utils/index.js ***!
@@ -19295,7 +19328,7 @@ var axiosCall = function axiosCall(_ref) {
       path = _ref$path === void 0 ? '' : _ref$path,
       _ref$payload = _ref.payload,
       payload = _ref$payload === void 0 ? {} : _ref$payload;
-  var host = "http://localhost:3000";
+  var host = "https://note-taking-app-server.herokuapp.com/";
   var url = "".concat(host, "/api/v1/").concat(path);
   var headers = {
     'Content-Type': 'application/json'
