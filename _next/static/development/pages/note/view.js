@@ -17293,18 +17293,18 @@ var useViewNote = function useViewNote(id, props) {
       GetNoteAsync = props.GetNoteAsync,
       Reset = props.Reset;
   Object(react__WEBPACK_IMPORTED_MODULE_8__["useEffect"])(function () {
+    GetNoteAsync(id);
+    return function () {
+      return Reset();
+    };
+  }, []);
+  Object(react__WEBPACK_IMPORTED_MODULE_8__["useEffect"])(function () {
     if (message) Object(_components_Toast__WEBPACK_IMPORTED_MODULE_9__["default"])(message, isErrored ? 'error' : 'success');
     EditNote({
       message: '',
       isErrored: false
     });
   }, [_babel_runtime_corejs2_core_js_json_stringify__WEBPACK_IMPORTED_MODULE_7___default()(note)]);
-  Object(react__WEBPACK_IMPORTED_MODULE_8__["useEffect"])(function () {
-    GetNoteAsync(id);
-    return function () {
-      return Reset();
-    };
-  }, []);
 
   var updateNote = function updateNote(e) {
     e.persist();
