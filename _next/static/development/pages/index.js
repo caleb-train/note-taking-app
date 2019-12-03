@@ -16519,12 +16519,7 @@ var ListNotes = function ListNotes(props) {
     }, __jsx("div", {
       className: "card-body",
       onClick: function onClick(_) {
-        return next_router__WEBPACK_IMPORTED_MODULE_2___default.a.push({
-          pathname: "".concat("/", "note/view"),
-          query: {
-            id: note.id
-          }
-        });
+        return next_router__WEBPACK_IMPORTED_MODULE_2___default.a.push("".concat("/", "note/").concat(note.id));
       }
     }, __jsx("h4", {
       className: "card-title text-xl"
@@ -17021,7 +17016,7 @@ var auto_grow = function auto_grow(e) {
 
 /***/ }),
 
-/***/ 9:
+/***/ 4:
 /*!**************************************************************************************************************************************************************!*\
   !*** multi next-client-pages-loader?page=%2F&absolutePagePath=C%3A%5CUsers%5CEwere%5CDocuments%5Cchallenges%5Cseamfix%5Cnote-taking-app%5Cpages%5Cindex.jsx ***!
   \**************************************************************************************************************************************************************/
@@ -17044,5 +17039,5 @@ module.exports = dll_5f137288facb1107b491;
 
 /***/ })
 
-},[[9,"static/runtime/webpack.js","styles"]]]);
+},[[4,"static/runtime/webpack.js","styles"]]]);
 //# sourceMappingURL=index.js.map

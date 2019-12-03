@@ -1,4 +1,4 @@
-(window["webpackJsonp"] = window["webpackJsonp"] || []).push([["static\\development\\pages\\note\\view.js"],{
+(window["webpackJsonp"] = window["webpackJsonp"] || []).push([["static\\development\\pages\\note.js"],{
 
 /***/ "./node_modules/@babel/runtime-corejs2/core-js/array/is-array.js":
 /*!***********************************************************************!*\
@@ -6358,21 +6358,21 @@ module.exports = (__webpack_require__(/*! dll-reference dll_5f137288facb1107b491
 
 /***/ }),
 
-/***/ "./node_modules/next/dist/build/webpack/loaders/next-client-pages-loader.js?page=%2Fnote%2Fview&absolutePagePath=C%3A%5CUsers%5CEwere%5CDocuments%5Cchallenges%5Cseamfix%5Cnote-taking-app%5Cpages%5Cnote%5Cview.jsx!./":
-/*!***************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/next/dist/build/webpack/loaders/next-client-pages-loader.js?page=%2Fnote%2Fview&absolutePagePath=C%3A%5CUsers%5CEwere%5CDocuments%5Cchallenges%5Cseamfix%5Cnote-taking-app%5Cpages%5Cnote%5Cview.jsx ***!
-  \***************************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/next/dist/build/webpack/loaders/next-client-pages-loader.js?page=%2Fnote&absolutePagePath=C%3A%5CUsers%5CEwere%5CDocuments%5Cchallenges%5Cseamfix%5Cnote-taking-app%5Cpages%5Cnote%5Cindex.jsx!./":
+/*!*********************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/next/dist/build/webpack/loaders/next-client-pages-loader.js?page=%2Fnote&absolutePagePath=C%3A%5CUsers%5CEwere%5CDocuments%5Cchallenges%5Cseamfix%5Cnote-taking-app%5Cpages%5Cnote%5Cindex.jsx ***!
+  \*********************************************************************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 
-    (window.__NEXT_P=window.__NEXT_P||[]).push(["/note/view", function() {
-      var mod = __webpack_require__(/*! ./pages/note/view.jsx */ "./pages/note/view.jsx")
+    (window.__NEXT_P=window.__NEXT_P||[]).push(["/note", function() {
+      var mod = __webpack_require__(/*! ./pages/note/index.jsx */ "./pages/note/index.jsx")
       if(true) {
-        module.hot.accept(/*! ./pages/note/view.jsx */ "./pages/note/view.jsx", function() {
-          if(!next.router.components["/note/view"]) return
-          var updatedPage = __webpack_require__(/*! ./pages/note/view.jsx */ "./pages/note/view.jsx")
-          next.router.update("/note/view", updatedPage)
+        module.hot.accept(/*! ./pages/note/index.jsx */ "./pages/note/index.jsx", function() {
+          if(!next.router.components["/note"]) return
+          var updatedPage = __webpack_require__(/*! ./pages/note/index.jsx */ "./pages/note/index.jsx")
+          next.router.update("/note", updatedPage)
         })
       }
       return mod
@@ -17027,10 +17027,10 @@ module.exports = function(module) {
 
 /***/ }),
 
-/***/ "./pages/note/view.jsx":
-/*!*****************************!*\
-  !*** ./pages/note/view.jsx ***!
-  \*****************************/
+/***/ "./pages/note/index.jsx":
+/*!******************************!*\
+  !*** ./pages/note/index.jsx ***!
+  \******************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -17041,15 +17041,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! next/router */ "./node_modules/next/dist/client/router.js");
 /* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(next_router__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
-/* harmony import */ var _src_hooks_useViewNote__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../src/hooks/useViewNote */ "./src/hooks/useViewNote.js");
-/* harmony import */ var _src_matchProps_ViewNote__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../src/matchProps/ViewNote */ "./src/matchProps/ViewNote.js");
-/* harmony import */ var _src_components_Loader__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../src/components/Loader */ "./src/components/Loader/index.jsx");
-/* harmony import */ var _src_styles_css__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../src/styles/css */ "./src/styles/css.js");
-/* harmony import */ var _src_styles_css__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_src_styles_css__WEBPACK_IMPORTED_MODULE_6__);
-/* harmony import */ var _src_components_ColorPicker__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../src/components/ColorPicker */ "./src/components/ColorPicker/index.jsx");
-/* harmony import */ var _src_utils__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../src/utils */ "./src/utils/index.js");
-/* harmony import */ var _src_styles_note_scss__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../src/styles/note.scss */ "./src/styles/note.scss");
-/* harmony import */ var _src_styles_note_scss__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(_src_styles_note_scss__WEBPACK_IMPORTED_MODULE_9__);
+/* harmony import */ var _src_hooks_useMakeNote__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../src/hooks/useMakeNote */ "./src/hooks/useMakeNote.js");
+/* harmony import */ var _src_matchProps_CreateNote__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../src/matchProps/CreateNote */ "./src/matchProps/CreateNote.js");
+/* harmony import */ var _src_components_ColorPicker__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../src/components/ColorPicker */ "./src/components/ColorPicker/index.jsx");
+/* harmony import */ var _src_components_Loader__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../src/components/Loader */ "./src/components/Loader/index.jsx");
+/* harmony import */ var _src_utils__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../src/utils */ "./src/utils/index.js");
+/* harmony import */ var _src_styles_note_scss__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../src/styles/note.scss */ "./src/styles/note.scss");
+/* harmony import */ var _src_styles_note_scss__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(_src_styles_note_scss__WEBPACK_IMPORTED_MODULE_8__);
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 
@@ -17061,48 +17059,45 @@ var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 
 
+var CreateNote = function CreateNote(props) {
+  console.log(props);
 
-var ViewNote = function ViewNote(props) {
-  var router = Object(next_router__WEBPACK_IMPORTED_MODULE_1__["useRouter"])();
-  var id = router.query.id;
-  console.log("ssd", id);
+  var _useMakeNote = Object(_src_hooks_useMakeNote__WEBPACK_IMPORTED_MODULE_3__["default"])(props),
+      editNote = _useMakeNote.editNote,
+      isLoading = _useMakeNote.isLoading,
+      updateNote = _useMakeNote.updateNote,
+      message = _useMakeNote.message,
+      isErrored = _useMakeNote.isErrored;
 
-  var _useViewNote = Object(_src_hooks_useViewNote__WEBPACK_IMPORTED_MODULE_3__["default"])(id, props),
-      editNote = _useViewNote.editNote,
-      isLoading = _useViewNote.isLoading,
-      updateNote = _useViewNote.updateNote,
-      message = _useViewNote.message;
+  if (!isErrored && message) {
+    next_router__WEBPACK_IMPORTED_MODULE_1___default.a.push("".concat("/"));
+  }
 
-  if (message) next_router__WEBPACK_IMPORTED_MODULE_1___default.a.push("".concat("/"));
-  return isLoading ? __jsx(_src_components_Loader__WEBPACK_IMPORTED_MODULE_5__["default"], null) : editNote && __jsx("div", {
-    className: "w-4/5 md:w-3/5 h-full flex flex-col mx-auto"
+  return isLoading ? __jsx(_src_components_Loader__WEBPACK_IMPORTED_MODULE_6__["default"], null) : __jsx("div", {
+    className: "w-4/5 md:w-3/5 flex flex-col mx-auto"
   }, __jsx("section", {
     className: "h-1/4 mt-6 flex flex-col items-center"
   }, __jsx("input", {
     name: "title",
     className: "text-2xl border-0 outline-none text-center",
     onChange: updateNote,
-    defaultValue: editNote.title
-  }), __jsx(_src_components_ColorPicker__WEBPACK_IMPORTED_MODULE_7__["default"], {
+    placeholder: "Title"
+  }), __jsx(_src_components_ColorPicker__WEBPACK_IMPORTED_MODULE_5__["default"], {
     pickColor: function pickColor(val) {
-      return Object(_src_components_ColorPicker__WEBPACK_IMPORTED_MODULE_7__["pickColor"])(val, updateNote);
+      return Object(_src_components_ColorPicker__WEBPACK_IMPORTED_MODULE_5__["pickColor"])(val, updateNote);
     },
     editNote: editNote
   })), __jsx("section", {
     className: "h-4/5"
-  }, __jsx("h5", {
-    className: "mx-auto mb-6 text-center"
-  }, "Change something to make edits"), __jsx("textarea", {
-    onInput: _src_utils__WEBPACK_IMPORTED_MODULE_8__["auto_grow"],
+  }, __jsx("textarea", {
+    onInput: _src_utils__WEBPACK_IMPORTED_MODULE_7__["auto_grow"],
     onChange: updateNote,
     name: "body",
-    value: editNote.body,
-    className: "w-full md:p-8 p-6 rumple outline-none min-h-4/5 text-sm font-montserrat ".concat(editNote.color || "wht"),
-    style: _src_styles_css__WEBPACK_IMPORTED_MODULE_6___default.a.rumple
-  }))) || __jsx(_src_components_Loader__WEBPACK_IMPORTED_MODULE_5__["default"], null);
+    className: "w-full md:p-8 p-6 outline-none min-h-3/5 text-sm overflow-hidden font-montserrat ".concat(editNote.color || "wht")
+  })));
 };
 
-/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_2__["connect"])(_src_matchProps_ViewNote__WEBPACK_IMPORTED_MODULE_4__["matchStateToProps"], _src_matchProps_ViewNote__WEBPACK_IMPORTED_MODULE_4__["matchDispatchToProps"])(ViewNote));
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_2__["connect"])(_src_matchProps_CreateNote__WEBPACK_IMPORTED_MODULE_4__["matchStateToProps"], _src_matchProps_CreateNote__WEBPACK_IMPORTED_MODULE_4__["matchDispatchToProps"])(CreateNote));
 
 /***/ }),
 
@@ -17240,9 +17235,9 @@ function callToast(output, type) {
 
 /***/ }),
 
-/***/ "./src/hooks/useViewNote.js":
+/***/ "./src/hooks/useMakeNote.js":
 /*!**********************************!*\
-  !*** ./src/hooks/useViewNote.js ***!
+  !*** ./src/hooks/useMakeNote.js ***!
   \**********************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
@@ -17283,38 +17278,36 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 
 
 
-var useViewNote = function useViewNote(id, props) {
-  var note = props.data[0],
+var useMakeNote = function useMakeNote(props) {
+  var data = props.data,
       editNote = props.editNote,
       isErrored = props.isErrored,
       message = props.message,
       isLoading = props.isLoading,
-      EditNote = props.EditNote,
-      GetNoteAsync = props.GetNoteAsync,
+      EditNoteNow = props.EditNoteNow,
       Reset = props.Reset;
   Object(react__WEBPACK_IMPORTED_MODULE_8__["useEffect"])(function () {
     if (message) Object(_components_Toast__WEBPACK_IMPORTED_MODULE_9__["default"])(message, isErrored ? 'error' : 'success');
-    EditNote({
+    EditNoteNow({
       message: '',
       isErrored: false
     });
-  }, [_babel_runtime_corejs2_core_js_json_stringify__WEBPACK_IMPORTED_MODULE_7___default()(note)]);
+  }, [_babel_runtime_corejs2_core_js_json_stringify__WEBPACK_IMPORTED_MODULE_7___default()(data)]);
   Object(react__WEBPACK_IMPORTED_MODULE_8__["useEffect"])(function () {
-    id ? GetNoteAsync(id) : null;
+    Reset();
     return function () {
       return Reset();
     };
-  }, [id]);
+  }, []);
 
   var updateNote = function updateNote(e) {
     e.persist();
 
     var upd = _objectSpread({}, editNote, Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_6__["default"])({}, e.target.name, e.target.value));
 
-    EditNote({
+    EditNoteNow({
       editNote: upd,
-      makeNote: false,
-      saveNote: _babel_runtime_corejs2_core_js_json_stringify__WEBPACK_IMPORTED_MODULE_7___default()(upd) !== _babel_runtime_corejs2_core_js_json_stringify__WEBPACK_IMPORTED_MODULE_7___default()(note)
+      makeNote: !!(upd.title && upd.body)
     });
   };
 
@@ -17323,19 +17316,18 @@ var useViewNote = function useViewNote(id, props) {
     isLoading: isLoading,
     updateNote: updateNote,
     message: message,
-    isErrored: isErrored,
-    note: note
+    isErrored: isErrored
   };
 };
 
-/* harmony default export */ __webpack_exports__["default"] = (useViewNote);
+/* harmony default export */ __webpack_exports__["default"] = (useMakeNote);
 
 /***/ }),
 
-/***/ "./src/matchProps/ViewNote.js":
-/*!************************************!*\
-  !*** ./src/matchProps/ViewNote.js ***!
-  \************************************/
+/***/ "./src/matchProps/CreateNote.js":
+/*!**************************************!*\
+  !*** ./src/matchProps/CreateNote.js ***!
+  \**************************************/
 /*! exports provided: matchStateToProps, matchDispatchToProps */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -17356,8 +17348,7 @@ var matchStateToProps = function matchStateToProps(_ref) {
   };
 };
 var matchDispatchToProps = {
-  GetNoteAsync: _store_actions_noteActions__WEBPACK_IMPORTED_MODULE_0__["GetNoteAsync"],
-  EditNote: _store_actions_noteActions__WEBPACK_IMPORTED_MODULE_0__["EditNote"],
+  EditNoteNow: _store_actions_noteActions__WEBPACK_IMPORTED_MODULE_0__["EditNote"],
   Reset: _store_actions_noteActions__WEBPACK_IMPORTED_MODULE_0__["Reset"]
 };
 
@@ -17578,30 +17569,6 @@ var DeleteNoteAsync = function DeleteNoteAsync(id) {
 
 /***/ }),
 
-/***/ "./src/styles/css.js":
-/*!***************************!*\
-  !*** ./src/styles/css.js ***!
-  \***************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = {
-  logo: {
-    backgroundImage: "url(\"".concat("/", "note-logo.png\")")
-  },
-  bg: {
-    background: "radial-gradient(\n      rgba(250, 250, 250, 0.85),\n      rgba(250, 250, 250, 1)\n    ),\n    url(\"".concat("/", "bg-what.webp\")")
-  },
-  emptyicon: {
-    backgroundImage: "url('".concat("/", "write.png')")
-  },
-  rumple: {
-    backgroundImage: "url('".concat("/", "crumpled-paper.webp')")
-  }
-};
-
-/***/ }),
-
 /***/ "./src/utils/index.js":
 /*!****************************!*\
   !*** ./src/utils/index.js ***!
@@ -17659,14 +17626,14 @@ var auto_grow = function auto_grow(e) {
 
 /***/ }),
 
-/***/ 12:
-/*!*******************************************************************************************************************************************************************************!*\
-  !*** multi next-client-pages-loader?page=%2Fnote%2Fview&absolutePagePath=C%3A%5CUsers%5CEwere%5CDocuments%5Cchallenges%5Cseamfix%5Cnote-taking-app%5Cpages%5Cnote%5Cview.jsx ***!
-  \*******************************************************************************************************************************************************************************/
+/***/ 10:
+/*!*************************************************************************************************************************************************************************!*\
+  !*** multi next-client-pages-loader?page=%2Fnote&absolutePagePath=C%3A%5CUsers%5CEwere%5CDocuments%5Cchallenges%5Cseamfix%5Cnote-taking-app%5Cpages%5Cnote%5Cindex.jsx ***!
+  \*************************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! next-client-pages-loader?page=%2Fnote%2Fview&absolutePagePath=C%3A%5CUsers%5CEwere%5CDocuments%5Cchallenges%5Cseamfix%5Cnote-taking-app%5Cpages%5Cnote%5Cview.jsx! */"./node_modules/next/dist/build/webpack/loaders/next-client-pages-loader.js?page=%2Fnote%2Fview&absolutePagePath=C%3A%5CUsers%5CEwere%5CDocuments%5Cchallenges%5Cseamfix%5Cnote-taking-app%5Cpages%5Cnote%5Cview.jsx!./");
+module.exports = __webpack_require__(/*! next-client-pages-loader?page=%2Fnote&absolutePagePath=C%3A%5CUsers%5CEwere%5CDocuments%5Cchallenges%5Cseamfix%5Cnote-taking-app%5Cpages%5Cnote%5Cindex.jsx! */"./node_modules/next/dist/build/webpack/loaders/next-client-pages-loader.js?page=%2Fnote&absolutePagePath=C%3A%5CUsers%5CEwere%5CDocuments%5Cchallenges%5Cseamfix%5Cnote-taking-app%5Cpages%5Cnote%5Cindex.jsx!./");
 
 
 /***/ }),
@@ -17682,5 +17649,5 @@ module.exports = dll_5f137288facb1107b491;
 
 /***/ })
 
-},[[12,"static/runtime/webpack.js","styles"]]]);
-//# sourceMappingURL=view.js.map
+},[[10,"static/runtime/webpack.js","styles"]]]);
+//# sourceMappingURL=note.js.map

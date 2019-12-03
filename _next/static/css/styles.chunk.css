@@ -58798,58 +58798,6 @@ nav .collapsible > button {
   }
 }
 
-.emptyicon {
-  width: 8rem;
-  height: 8rem;
-  margin-right: 0.5rem;
-  display: inline-block;
-  background-size: cover;
-  background-repeat: no-repeat;
-}
-
-.emptyicon-hd {
-  display: -webkit-box;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-          flex-direction: column;
-  -webkit-box-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-          align-items: center;
-  height: 100%;
-  width: 100%;
-}
-
-.rumple {
-  background-blend-mode: multiply;
-}
-
-.rumple.gray {
-  /* background-image: url('/crumpled-paper.jpg'); */
-  background-blend-mode: color-burn;
-}
-
-.card-hd {
-  width: 100%;
-  display: inline-block;
-  padding: 0 2rem;
-  margin: 2rem 0;
-  height: 14rem;
-}
-
-@media (min-width: 768px) {
-  .card-hd {
-    width: 50%;
-  }
-}
-
-@media (min-width: 992px) {
-  .card-hd {
-    width: 33.333%;
-  }
-}
-
 .colorpicker {
   width: 100%;
   display: -webkit-box;
@@ -58951,6 +58899,58 @@ textarea {
   height: -webkit-min-content;
   height: -moz-min-content;
   height: min-content;
+}
+
+.emptyicon {
+  width: 8rem;
+  height: 8rem;
+  margin-right: 0.5rem;
+  display: inline-block;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.emptyicon-hd {
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+          flex-direction: column;
+  -webkit-box-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+          align-items: center;
+  height: 100%;
+  width: 100%;
+}
+
+.rumple {
+  background-blend-mode: multiply;
+}
+
+.rumple.gray {
+  /* background-image: url('/crumpled-paper.jpg'); */
+  background-blend-mode: color-burn;
+}
+
+.card-hd {
+  width: 100%;
+  display: inline-block;
+  padding: 0 2rem;
+  margin: 2rem 0;
+  height: 14rem;
+}
+
+@media (min-width: 768px) {
+  .card-hd {
+    width: 50%;
+  }
+}
+
+@media (min-width: 992px) {
+  .card-hd {
+    width: 33.333%;
+  }
 }
 
 
