@@ -18839,7 +18839,7 @@ var Nav = function Nav(props) {
   return __jsx("nav", {
     className: "mainNav px-2 sm:px-8  justify-between ".concat(navBackground ? "scroll" : "")
   }, __jsx(next_link__WEBPACK_IMPORTED_MODULE_2___default.a, {
-    href: "/"
+    href: "".concat("")
   }, __jsx("div", {
     className: "Logo flex items-center ".concat(navBackground ? "scale" : "")
   }, __jsx("div", {
@@ -18853,7 +18853,7 @@ var Nav = function Nav(props) {
       return CreateNoteAsync(editNote);
     }
   }, "Create") : __jsx(next_link__WEBPACK_IMPORTED_MODULE_2___default.a, {
-    href: "/note"
+    href: "".concat("", "/note")
   }, __jsx("button", {
     className: "btn p-1 px-2"
   }, "Add")), saveNote ? __jsx("button", {
