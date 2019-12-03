@@ -17073,7 +17073,7 @@ var ViewNote = function ViewNote(props) {
       updateNote = _useViewNote.updateNote,
       message = _useViewNote.message;
 
-  if (message) next_router__WEBPACK_IMPORTED_MODULE_1___default.a.push("/".concat(""));
+  if (message) next_router__WEBPACK_IMPORTED_MODULE_1___default.a.push("".concat("/"));
   return isLoading ? __jsx(_src_components_Loader__WEBPACK_IMPORTED_MODULE_5__["default"], null) : editNote && __jsx("div", {
     className: "w-4/5 md:w-3/5 h-full flex flex-col mx-auto"
   }, __jsx("section", {
@@ -17587,16 +17587,16 @@ var DeleteNoteAsync = function DeleteNoteAsync(id) {
 
 module.exports = {
   logo: {
-    backgroundImage: "url(\"".concat("", "/note-logo.png\")")
+    backgroundImage: "url(\"".concat("/", "note-logo.png\")")
   },
   bg: {
-    background: "radial-gradient(\n      rgba(250, 250, 250, 0.85),\n      rgba(250, 250, 250, 1)\n    ),\n    url(\"".concat("", "/bg-what.webp\")")
+    background: "radial-gradient(\n      rgba(250, 250, 250, 0.85),\n      rgba(250, 250, 250, 1)\n    ),\n    url(\"".concat("/", "bg-what.webp\")")
   },
   emptyicon: {
-    backgroundImage: "url('".concat("", "/write.png')")
+    backgroundImage: "url('".concat("/", "write.png')")
   },
   rumple: {
-    backgroundImage: "url('".concat("", "/crumpled-paper.webp')")
+    backgroundImage: "url('".concat("/", "crumpled-paper.webp')")
   }
 };
 
@@ -17659,7 +17659,7 @@ var auto_grow = function auto_grow(e) {
 
 /***/ }),
 
-/***/ 9:
+/***/ 4:
 /*!*******************************************************************************************************************************************************************************!*\
   !*** multi next-client-pages-loader?page=%2Fnote%2Fview&absolutePagePath=C%3A%5CUsers%5CEwere%5CDocuments%5Cchallenges%5Cseamfix%5Cnote-taking-app%5Cpages%5Cnote%5Cview.jsx ***!
   \*******************************************************************************************************************************************************************************/
@@ -17682,5 +17682,5 @@ module.exports = dll_5f137288facb1107b491;
 
 /***/ })
 
-},[[9,"static/runtime/webpack.js","styles"]]]);
+},[[4,"static/runtime/webpack.js","styles"]]]);
 //# sourceMappingURL=view.js.map

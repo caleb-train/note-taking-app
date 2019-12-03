@@ -16520,7 +16520,7 @@ var ListNotes = function ListNotes(props) {
       className: "card-body",
       onClick: function onClick(_) {
         return next_router__WEBPACK_IMPORTED_MODULE_2___default.a.push({
-          pathname: "".concat("", "/note/view"),
+          pathname: "".concat("/", "note/view"),
           query: {
             id: note.id
           }
@@ -16949,16 +16949,16 @@ var DeleteNoteAsync = function DeleteNoteAsync(id) {
 
 module.exports = {
   logo: {
-    backgroundImage: "url(\"".concat("", "/note-logo.png\")")
+    backgroundImage: "url(\"".concat("/", "note-logo.png\")")
   },
   bg: {
-    background: "radial-gradient(\n      rgba(250, 250, 250, 0.85),\n      rgba(250, 250, 250, 1)\n    ),\n    url(\"".concat("", "/bg-what.webp\")")
+    background: "radial-gradient(\n      rgba(250, 250, 250, 0.85),\n      rgba(250, 250, 250, 1)\n    ),\n    url(\"".concat("/", "bg-what.webp\")")
   },
   emptyicon: {
-    backgroundImage: "url('".concat("", "/write.png')")
+    backgroundImage: "url('".concat("/", "write.png')")
   },
   rumple: {
-    backgroundImage: "url('".concat("", "/crumpled-paper.webp')")
+    backgroundImage: "url('".concat("/", "crumpled-paper.webp')")
   }
 };
 
@@ -17021,7 +17021,7 @@ var auto_grow = function auto_grow(e) {
 
 /***/ }),
 
-/***/ 4:
+/***/ 9:
 /*!**************************************************************************************************************************************************************!*\
   !*** multi next-client-pages-loader?page=%2F&absolutePagePath=C%3A%5CUsers%5CEwere%5CDocuments%5Cchallenges%5Cseamfix%5Cnote-taking-app%5Cpages%5Cindex.jsx ***!
   \**************************************************************************************************************************************************************/
@@ -17044,5 +17044,5 @@ module.exports = dll_5f137288facb1107b491;
 
 /***/ })
 
-},[[4,"static/runtime/webpack.js","styles"]]]);
+},[[9,"static/runtime/webpack.js","styles"]]]);
 //# sourceMappingURL=index.js.map
