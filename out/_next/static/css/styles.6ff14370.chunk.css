@@ -30,7 +30,6 @@
   display: inline-block;
   width: 3rem;
   height: 3rem;
-  background: url("/note-logo.png");
   background-size: cover;
   background-repeat: no-repeat;
 }
@@ -11461,7 +11460,6 @@ body,
 html {
   font-family: Monsterrat;
   overflow: auto;
-  background-image: radial-gradient(rgba(250, 250, 250, 0.85), #fafafa), url("/bg-what.webp");
   height: 100%;
 }
 
@@ -57642,7 +57640,6 @@ nav .collapsible > button {
   height: 8rem;
   margin-right: 0.5rem;
   display: inline-block;
-  background: url("/write.png");
   background-size: cover;
   background-repeat: no-repeat;
 }
