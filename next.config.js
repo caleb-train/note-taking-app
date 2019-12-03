@@ -3,8 +3,10 @@ const webpack = require('webpack')
 const withCSS = require('@zeit/next-css')
 const withSass = require('@zeit/next-sass')
 
+const debug = process.env.NODE_ENV !== "production";
+
 module.exports = withCSS(withSass({
-  webpack(config, options) {
+  webpack(config) {
     config.module.rules.push({
       test: /\.(png|jpg|gif|svg|eot|ttf|woff|woff2)$/,
       use: {
@@ -19,5 +21,6 @@ module.exports = withCSS(withSass({
     )
 
     return config;
-  }
+  },
+  assetPrefix: !debug ? 'https://caleb-train.github.io/note-taking-app/' : ''
 }));
