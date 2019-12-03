@@ -18839,7 +18839,7 @@ var Nav = function Nav(props) {
   return __jsx("nav", {
     className: "mainNav px-2 sm:px-8  justify-between ".concat(navBackground ? "scroll" : "")
   }, __jsx(next_link__WEBPACK_IMPORTED_MODULE_2___default.a, {
-    href: "/".concat("")
+    href: "".concat("/")
   }, __jsx("div", {
     className: "Logo flex items-center ".concat(navBackground ? "scale" : "")
   }, __jsx("div", {
@@ -18853,7 +18853,7 @@ var Nav = function Nav(props) {
       return CreateNoteAsync(editNote);
     }
   }, "Create") : __jsx(next_link__WEBPACK_IMPORTED_MODULE_2___default.a, {
-    href: "".concat("", "/note")
+    href: "".concat("/", "note")
   }, __jsx("button", {
     className: "btn p-1 px-2"
   }, "Add")), saveNote ? __jsx("button", {
@@ -19291,16 +19291,16 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 
 module.exports = {
   logo: {
-    backgroundImage: "url(\"".concat("", "/note-logo.png\")")
+    backgroundImage: "url(\"".concat("/", "note-logo.png\")")
   },
   bg: {
-    background: "radial-gradient(\n      rgba(250, 250, 250, 0.85),\n      rgba(250, 250, 250, 1)\n    ),\n    url(\"".concat("", "/bg-what.webp\")")
+    background: "radial-gradient(\n      rgba(250, 250, 250, 0.85),\n      rgba(250, 250, 250, 1)\n    ),\n    url(\"".concat("/", "bg-what.webp\")")
   },
   emptyicon: {
-    backgroundImage: "url('".concat("", "/write.png')")
+    backgroundImage: "url('".concat("/", "write.png')")
   },
   rumple: {
-    backgroundImage: "url('".concat("", "/crumpled-paper.webp')")
+    backgroundImage: "url('".concat("/", "crumpled-paper.webp')")
   }
 };
 
