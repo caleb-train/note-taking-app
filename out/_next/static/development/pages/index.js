@@ -16519,7 +16519,12 @@ var ListNotes = function ListNotes(props) {
     }, __jsx("div", {
       className: "card-body",
       onClick: function onClick(_) {
-        return next_router__WEBPACK_IMPORTED_MODULE_2___default.a.push("".concat("", "/note/").concat(note.id));
+        return next_router__WEBPACK_IMPORTED_MODULE_2___default.a.push({
+          pathname: "".concat("", "/note/view"),
+          query: {
+            id: note.id
+          }
+        });
       }
     }, __jsx("h4", {
       className: "card-title text-xl"
