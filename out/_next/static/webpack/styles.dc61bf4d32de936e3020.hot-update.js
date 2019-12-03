@@ -29,7 +29,7 @@ webpackHotUpdate("styles",{
           .querySelectorAll("link[href][rel=stylesheet]")
           .forEach(function(link) {
             if (!link.href.match(prefix) || link.stale) return;
-            injectCss(link, link.href.split("?")[0] + "?unix=1575389426649");
+            injectCss(link, link.href.split("?")[0] + "?unix=1575415114711");
           });
       }
     }
@@ -66,7 +66,7 @@ webpackHotUpdate("styles",{
           .querySelectorAll("link[href][rel=stylesheet]")
           .forEach(function(link) {
             if (!link.href.match(prefix) || link.stale) return;
-            injectCss(link, link.href.split("?")[0] + "?unix=1575389427130");
+            injectCss(link, link.href.split("?")[0] + "?unix=1575415114461");
           });
       }
     }
@@ -103,7 +103,7 @@ webpackHotUpdate("styles",{
           .querySelectorAll("link[href][rel=stylesheet]")
           .forEach(function(link) {
             if (!link.href.match(prefix) || link.stale) return;
-            injectCss(link, link.href.split("?")[0] + "?unix=1575389426988");
+            injectCss(link, link.href.split("?")[0] + "?unix=1575415114244");
           });
       }
     }
@@ -111,10 +111,10 @@ webpackHotUpdate("styles",{
 
 /***/ }),
 
-/***/ "./src/styles/note.scss":
-/*!******************************!*\
-  !*** ./src/styles/note.scss ***!
-  \******************************/
+/***/ "./src/styles/index.scss":
+/*!*******************************!*\
+  !*** ./src/styles/index.scss ***!
+  \*******************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -140,7 +140,7 @@ webpackHotUpdate("styles",{
           .querySelectorAll("link[href][rel=stylesheet]")
           .forEach(function(link) {
             if (!link.href.match(prefix) || link.stale) return;
-            injectCss(link, link.href.split("?")[0] + "?unix=1575389426401");
+            injectCss(link, link.href.split("?")[0] + "?unix=1575415113707");
           });
       }
     }
@@ -149,4 +149,4 @@ webpackHotUpdate("styles",{
 /***/ })
 
 })
-//# sourceMappingURL=styles.81308d9e99819b173ed9.hot-update.js.map
+//# sourceMappingURL=styles.dc61bf4d32de936e3020.hot-update.js.map
