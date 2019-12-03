@@ -11475,7 +11475,7 @@ html {
 }
 
 main {
-  margin: 3.5rem auto;
+  padding: 3.5rem 0;
   height: 100%;
   -webkit-box-flex: 1;
           flex-grow: 1;
@@ -57659,7 +57659,6 @@ nav .collapsible > button {
 }
 
 .rumple {
-  background-image: url("/crumpled-paper.webp");
   background-blend-mode: multiply;
 }
 
