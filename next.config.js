@@ -27,5 +27,5 @@ module.exports = withCSS(withSass({
 
     return config;
   },
-  assetPrefix: debug ? process.env.APP_URL : ''
+  assetPrefix: debug ? `${process.env.HEROKU_APP_NAME_PREFIX}${process.env.HEROKU_APP_NAME}${process.env.HEROKU_APP_NAME_SUFFIX}${process.env.URL}` : ''
 }));

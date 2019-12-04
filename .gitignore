@@ -5,3 +5,4 @@ out
 
 # dotenv environment variables file
 .env
+.env_dev
