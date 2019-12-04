@@ -9,7 +9,7 @@ import {
 import ColorPicker, { pickColor } from "@comp/ColorPicker";
 import Loader from "@comp/Loader";
 import { auto_grow } from "@utils";
-import "./index.scss";
+import "@styles/note.scss";
 
 const CreateNote = props => {
   console.log(props);
@@ -17,7 +17,7 @@ const CreateNote = props => {
     props
   );
   if (!isErrored && message) {
-    Router.push("/");
+    Router.push(`${process.env.URL}`);
   }
   return isLoading ? (
     <Loader />

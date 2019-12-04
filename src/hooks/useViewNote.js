@@ -26,9 +26,9 @@ const useViewNote = (id, props) => {
   }, [JSON.stringify(note)])
 
   useEffect(() => {
-    GetNoteAsync(id)
+    id ? GetNoteAsync(id) : null
     return () => Reset()
-  }, [])
+  }, [id])
 
   const updateNote = e => {
     e.persist()

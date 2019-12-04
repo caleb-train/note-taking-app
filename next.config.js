@@ -1,9 +1,11 @@
+/* eslint-disable import/no-extraneous-dependencies */
 require('dotenv').config()
 const webpack = require('webpack')
+const Dotenv = require('dotenv-webpack');
 const withCSS = require('@zeit/next-css')
 const withSass = require('@zeit/next-sass')
 
-const debug = process.env.NODE_ENV !== "production";
+const debug = process.env.NODE_ENV == "production";
 
 module.exports = withCSS(withSass({
   webpack(config) {
@@ -17,10 +19,13 @@ module.exports = withCSS(withSass({
       }
     });
     config.plugins.push(
-      new webpack.EnvironmentPlugin(process.env)
+      debug ? new webpack.EnvironmentPlugin(process.env) :
+      new Dotenv({
+        path: './.env_dev'
+      })
     )
 
     return config;
   },
-  assetPrefix: !debug ? 'https://caleb-train.github.io/note-taking-app/' : ''
+  assetPrefix: debug ? process.env.APP_URL : ''
 }));

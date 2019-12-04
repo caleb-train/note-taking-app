@@ -4,6 +4,7 @@ import Nav from "@comp/Nav";
 import { ToastContainer } from "react-toastify";
 import App from "next/app";
 import withRedux from "next-redux-wrapper";
+import style from "@styles/css";
 import { initStore } from "@store";
 import "@styles/main.scss";
 import "@styles/paper.css";
@@ -24,7 +25,7 @@ class MyApp extends App {
     return (
       <Provider store={store}>
         <Nav />
-        <main>
+        <main style={style.bg}>
           <Component />
         </main>
         <ToastContainer

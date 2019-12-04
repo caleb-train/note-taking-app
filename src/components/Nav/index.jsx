@@ -2,6 +2,7 @@ import React, { useState, useRef, useEffect } from "react";
 import { connect } from "react-redux";
 import Link from "next/link";
 import * as Actions from "@store/actions/noteActions";
+import style from "@styles/css";
 import "./index.scss";
 
 const Nav = props => {
@@ -39,11 +40,11 @@ const Nav = props => {
         navBackground ? "scroll" : ""
       }`}
     >
-      <Link href="/">
+      <Link href={`${process.env.URL}`}>
         <div
           className={`Logo flex items-center ${navBackground ? "scale" : ""}`}
         >
-          <div className="border-0 logo"></div>
+          <div className="border-0 logo" style={style.logo}></div>
           <h3>ScrapBook</h3>
         </div>
       </Link>
@@ -60,7 +61,7 @@ const Nav = props => {
             Create
           </button>
         ) : (
-          <Link href="/note">
+          <Link href={`${process.env.URL}note`}>
             <button className="btn p-1 px-2">Add</button>
           </Link>
         )}

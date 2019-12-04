@@ -7,18 +7,19 @@ import {
   matchDispatchToProps
 } from "@client/matchProps/ViewNote";
 import Loader from "@comp/Loader";
+import style from "@styles/css";
 import ColorPicker, { pickColor } from "@comp/ColorPicker";
 import { auto_grow } from "@utils";
-import "./index.scss";
+import "@styles/note.scss";
 
 const ViewNote = props => {
   const router = useRouter();
   const { id } = router.query;
 
-  console.log(props);
+  console.log("ssd", id);
   const { editNote, isLoading, updateNote, message } = useViewNote(id, props);
 
-  if (message) Router.push("/");
+  if (message) Router.push(`${process.env.URL}`);
 
   return isLoading ? (
     <Loader />
@@ -49,6 +50,7 @@ const ViewNote = props => {
             value={editNote.body}
             className={`w-full md:p-8 p-6 rumple outline-none min-h-4/5 text-sm font-montserrat ${editNote.color ||
               "wht"}`}
+            style={style.rumple}
           ></textarea>
         </section>
       </div>
