@@ -1,13 +1,6 @@
 {
-  "presets": ["@babel/env", "@babel/react"],
+  "presets": ["next/babel"],
   "plugins": [
-    [
-      "@babel/plugin-transform-runtime",
-      {
-        "regenerator": true
-      }
-    ],
-    "@babel/plugin-proposal-class-properties",
     [
       "module-resolver",
       {
@@ -16,15 +9,11 @@
         ],
         "alias": {
           "@": "./",
-          "@client": "./app/client",
-          "@utils": "./app/client/utils",
-          "@store": "./app/client/store",
-          "@db": "./app/server/db",
-          "@database": "./database.json",
-          "@styles": "./app/client/styles",
-          "@routes": "./app/client/routes",
-          "@guards": "./app/client/guards",
-          "@comp": "./app/client/components"
+          "@client": "./src",
+          "@utils": "./src/utils",
+          "@store": "./src/store",
+          "@styles": "./src/styles",
+          "@comp": "./src/components"
         }
       }
     ]

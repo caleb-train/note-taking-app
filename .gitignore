@@ -1,6 +1,8 @@
 # Dependency directories
 node_modules/
-public/
+.next
+out
 
 # dotenv environment variables file
 .env
+.env_dev
