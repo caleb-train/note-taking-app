@@ -4,7 +4,7 @@
   "description": "note taking application",
   "main": "server.js",
   "scripts": {
-    "dev": "nodemon --exec babel-node src/server.js",
+    "dev": "next -p 3500",
     "build": "next build",
     "heroku-postbuild": "next build",
     "deploy": "next build && rm -rf out && next export && touch out/.nojekyll && git add out/ && git commit -m \"Deploy gh-pages\" && git subtree push --prefix out origin gh-pages",

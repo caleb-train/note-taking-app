@@ -1,11 +1,8 @@
 /* eslint-disable import/no-extraneous-dependencies */
 require('dotenv').config()
 const webpack = require('webpack')
-const Dotenv = require('dotenv-webpack');
 const withCSS = require('@zeit/next-css')
 const withSass = require('@zeit/next-sass')
-
-const debug = process.env.NODE_ENV == "production";
 
 module.exports = withCSS(withSass({
   webpack(config) {
@@ -19,13 +16,9 @@ module.exports = withCSS(withSass({
       }
     });
     config.plugins.push(
-      debug ? new webpack.EnvironmentPlugin(process.env) :
-      new Dotenv({
-        path: './.env_dev'
-      })
+      new webpack.EnvironmentPlugin(process.env)
     )
 
     return config;
-  },
-  assetPrefix: debug ? `${process.env.HEROKU_APP_NAME_PREFIX}${process.env.HEROKU_APP_NAME}${process.env.HEROKU_APP_NAME_SUFFIX}${process.env.URL}` : ''
+  }
 }));

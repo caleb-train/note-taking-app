@@ -39,6 +39,6 @@ app.prepare()
     });
   })
   .catch((ex) => {
-    console.error(ex.stack)
+    console.error(ex.message)
     process.exit(1)
   })

@@ -25,12 +25,7 @@ const ListNotes = props => {
         >
           <div
             className="card-body"
-            onClick={_ =>
-              Router.push({
-                pathname: `${process.env.URL}note/view`,
-                query: { id: note.id }
-              })
-            }
+            onClick={_ => Router.push(`${process.env.URL}note/${note.id}`)}
           >
             <h4 className="card-title text-xl">{note.title}</h4>
             <p
