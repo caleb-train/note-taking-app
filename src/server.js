@@ -31,6 +31,6 @@ app.prepare()
     });
   })
   .catch((ex) => {
-    console.error(ex.message)
-    process.exit(1)
+    console.error(ex.message);
+    process.exit(1);
   })
