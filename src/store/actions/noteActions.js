@@ -1,3 +1,8 @@
+import {
+  call,
+  put,
+  delay
+} from 'redux-saga/effects'
 import * as actions from './actionTypes'
 import {
   axiosCall as axios
@@ -9,13 +14,27 @@ export const ListNotes = payload => ({
   payload
 })
 
+export const ListNotesAsync = () => ({
+  type: actions.LIST_NOTES_ASYNC
+})
+
 export const GetNote = payload => ({
   type: actions.GET_NOTE,
   payload
 })
 
+export const GetNoteAsync = id => ({
+  type: actions.GET_NOTE_ASYNC,
+  id
+})
+
 export const CreateNote = payload => ({
   type: actions.CREATE_NOTE,
+  payload
+})
+
+export const CreateNoteAsync = payload => ({
+  type: actions.CREATE_NOTE_ASYNC,
   payload
 })
 
@@ -24,11 +43,20 @@ export const UpdateNote = payload => ({
   payload
 })
 
+export const UpdateNoteAsync = payload => ({
+  type: actions.UPDATE_NOTE_ASYNC,
+  payload
+})
+
 export const DeleteNote = payload => ({
   type: actions.DELETE_NOTE,
   payload
 })
 
+export const DeleteNoteAsync = id => ({
+  type: actions.DELETE_NOTE_ASYNC,
+  id
+})
 
 export const EditNote = payload => ({
   type: actions.EDIT_NOTE,
@@ -46,8 +74,127 @@ export const Reset = (payload = {}) => ({
 })
 /* END ACTIONS */
 
+/* START SAGAS */
+
+export function* ListNotesSaga() {
+  yield put(Reset())
+  yield put(EditNote({
+    isLoading: true
+  }))
+
+  try {
+    const res = yield call(axios, {
+      path: 'notes/'
+    });
+    yield put(ListNotes(res.data));
+  } catch (message) {
+    yield put(ErrorNote({
+      message
+    }));
+  }
+}
+
+export function* GetNoteSaga({
+  id
+}) {
+  yield put(Reset())
+  yield put(EditNote({
+    isLoading: true
+  }))
+
+  try {
+    const res = yield call(axios, {
+      path: `note/${id}`
+    });
+    yield put(GetNote({
+      data: res.data,
+      editNote: res.data[0],
+      message: res.message
+    }));
+  } catch (message) {
+    yield put(ErrorNote({
+      message
+    }));
+  }
+}
+
+export function* CreateNoteSaga({
+  payload
+}) {
+  console.log(payload)
+  yield put(EditNote({
+    isLoading: true
+  }))
+
+  try {
+    const res = yield call(axios, {
+      method: 'POST',
+      path: `note`,
+      payload,
+    });
+    yield put(CreateNote({
+      message: res.message
+    }));
+  } catch (message) {
+    yield put(ErrorNote({
+      message
+    }));
+  }
+}
+
+export function* UpdateNoteSaga({
+  payload
+}) {
+  console.log(payload)
+  yield put(EditNote({
+    isLoading: true
+  }))
+
+  try {
+    const res = yield call(axios, {
+      method: 'PATCH',
+      path: `note/${payload.id}`,
+      payload,
+    });
+    yield put(UpdateNote({
+      message: res.message
+    }));
+  } catch (message) {
+    yield put(ErrorNote({
+      message
+    }));
+  }
+}
+
+export function* DeleteNoteSaga({
+  id
+}) {
+  yield put(EditNote({
+    isLoading: true
+  }))
+
+  try {
+    const res = yield call(axios, {
+      method: 'DELETE',
+      path: `note/${id}`
+    });
+    yield put(DeleteNote({
+      data: [null],
+      message: res.message
+    }));
+    yield put(ListNotesAsync())
+  } catch (message) {
+    yield put(ErrorNote({
+      message
+    }));
+  }
+}
+
+
+/* END SAGAS */
+
 /* START THUNKS */
-export const ListNotesAsync = _ => {
+/* export const ListNotesAsync = _ => {
   return dispatch => {
     dispatch(Reset())
     dispatch(EditNote({
@@ -84,7 +231,6 @@ export const GetNoteAsync = (id) => {
 
   }
 }
-
 export const CreateNoteAsync = payload => {
   return dispatch => {
     dispatch(EditNote({
@@ -153,4 +299,5 @@ export const DeleteNoteAsync = (id) => {
 
 }
 
+ */
 /* END THUNKS */
