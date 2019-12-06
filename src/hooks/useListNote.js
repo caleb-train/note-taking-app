@@ -1,6 +1,7 @@
 import {
   useEffect
 } from 'react'
+import Router from "next/router";
 import callToast from '@comp/Toast';
 
 const useListNote = props => {
@@ -27,6 +28,10 @@ const useListNote = props => {
   }, [JSON.stringify(data)])
 
   useEffect(() => {
+    if (!props.auth.isAuthenticated()) {
+      callToast('Unauthenticated User', 'error');
+      Router.push("/");
+    }
     ListNotesAsync()
     return () => Reset()
   }, [])

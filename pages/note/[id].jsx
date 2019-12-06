@@ -19,7 +19,7 @@ const ViewNote = props => {
   console.log("ssd", id);
   const { editNote, isLoading, updateNote, message } = useViewNote(id, props);
 
-  if (message) Router.push(`${process.env.URL}`);
+  if (message) Router.push(`${process.env.URL}notes`);
 
   return isLoading ? (
     <Loader />

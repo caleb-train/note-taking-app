@@ -23,15 +23,7 @@ app.prepare()
     server.use(bodyParser.urlencoded({
       extended: true
     }));
-    /* 
-        server.get('/note/:id', (req, res) => {
-          const actualPage = '/note/view'
-          const queryParams = {
-            id: req.params.id
-          }
-          app.render(req, res, actualPage, queryParams)
-        })
-     */
+
     server.listen(PORT || 3500, () => {
       server.get('*', (req, res) => {
         return handle(req, res)
