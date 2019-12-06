@@ -10,7 +10,7 @@ module.exports = {
     url("${process.env.URL}bg-what.webp")`
   },
   emptyicon: {
-    backgroundImage: `url('${process.env.URL}write.png')`
+    backgroundImage: `url('${process.env.URL}write.webp')`
   },
   rumple: {
     backgroundImage: `url('${process.env.URL}crumpled-paper.webp')`

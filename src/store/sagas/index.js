@@ -1,27 +1,25 @@
 import {
-  takeEvery
+  takeLatest,
+  all
 } from 'redux-saga/effects'
 import * as actions from '../actions/actionTypes'
-
-function* listNotes(action) {
-  /* try {
-    const user = yield call(Api.fetchUser, action.payload.userId);
-    yield put({
-      type: "USER_FETCH_SUCCEEDED",
-      user: user
-    });
-  } catch (e) {
-    yield put({
-      type: "USER_FETCH_FAILED",
-      message: e.message
-    });
-  } */
-  console.log('hi')
-}
+import {
+  ListNotesSaga,
+  GetNoteSaga,
+  CreateNoteSaga,
+  UpdateNoteSaga,
+  DeleteNoteSaga,
+} from '../actions/noteActions'
 
 
 function* rootSaga() {
-  yield takeEvery(actions.LIST_NOTES, listNotes)
+  yield all([
+    takeLatest(actions.LIST_NOTES_ASYNC, ListNotesSaga),
+    takeLatest(actions.GET_NOTE_ASYNC, GetNoteSaga),
+    takeLatest(actions.CREATE_NOTE_ASYNC, CreateNoteSaga),
+    takeLatest(actions.UPDATE_NOTE_ASYNC, UpdateNoteSaga),
+    takeLatest(actions.DELETE_NOTE_ASYNC, DeleteNoteSaga),
+  ])
 }
 
 export default rootSaga;
