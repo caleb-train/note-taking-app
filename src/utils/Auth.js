@@ -105,7 +105,23 @@ export default class Auth {
     localStorage.removeItem('expiresAt');
 
     // navigate to the home route
-    window.location.replace('/');
+    /* window.location.replace('/'); */
+    this.auth0.logout({
+      clientID: process.env.CLIENT_ID,
+      returnTo: process.env.APP_URL,
+    })
+  }
+
+  extractUser() {
+    // Check whether the current time is past the
+    // access token's expiry time
+    const user = localStorage.getItem('user_details');
+    try {
+      const userObj = JSON.parse(user);
+      return userObj;
+    } catch (e) {
+      return null;
+    }
   }
 
   isAuthenticated() {
@@ -116,4 +132,5 @@ export default class Auth {
     console.log(expiresAt, time < expiresAt)
     return time < expiresAt;
   }
+
 }

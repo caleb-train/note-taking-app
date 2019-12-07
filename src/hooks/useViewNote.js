@@ -16,6 +16,7 @@ const useViewNote = (id, props) => {
     EditNote,
     GetNoteAsync,
     Reset,
+    auth
   } = props
 
   useEffect(() => {
@@ -27,7 +28,7 @@ const useViewNote = (id, props) => {
   }, [JSON.stringify(note)])
 
   useEffect(() => {
-    if (!props.auth.isAuthenticated()) {
+    if (!auth.isAuthenticated) {
       callToast('Unauthenticated User', 'error');
       Router.push("/");
     }

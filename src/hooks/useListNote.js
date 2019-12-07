@@ -14,6 +14,7 @@ const useListNote = props => {
     ListNotesAsync,
     DeleteNoteAsync,
     Reset,
+    auth
   } = props
 
   useEffect(() => {
@@ -28,7 +29,7 @@ const useListNote = props => {
   }, [JSON.stringify(data)])
 
   useEffect(() => {
-    if (!props.auth.isAuthenticated()) {
+    if (!auth.isAuthenticated) {
       callToast('Unauthenticated User', 'error');
       Router.push("/");
     }

@@ -5,14 +5,16 @@ import {
 } from "@store/actions/noteActions";
 
 export const matchStateToProps = ({
-  note: state
+  note,
+  auth
 }) => {
   return {
-    data: state.data,
-    editNote: state.editNote,
-    isErrored: state.isErrored,
-    message: state.message,
-    isLoading: state.isLoading
+    data: note.data,
+    editNote: note.editNote,
+    isErrored: note.isErrored,
+    message: note.message,
+    isLoading: note.isLoading,
+    auth
   };
 };
 

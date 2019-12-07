@@ -1,18 +1,14 @@
 import React from "react";
 import { Provider } from "react-redux";
-import Nav from "@comp/Nav";
 import { ToastContainer } from "react-toastify";
-import Router from "next/router";
 import App from "next/app";
 import withRedux from "next-redux-wrapper";
+import AuthWrapper from "@client/guards";
 import { initStore } from "@store";
-import Auth from "@utils/Auth";
 import "@styles/main.scss";
 import "@styles/paper.css";
 
 class MyApp extends App {
-  auth = new Auth(Router);
-
   static async getInitialProps({ Component, ctx }) {
     /* console.log(ctx); */
     return {
@@ -28,10 +24,7 @@ class MyApp extends App {
     const { Component, store, pageProps } = this.props;
     return (
       <Provider store={store}>
-        <Nav />
-        <main>
-          <Component {...pageProps} auth={this.auth} />
-        </main>
+        <AuthWrapper Component={Component} pageProps={pageProps} />
         <ToastContainer
           autoClose={5000}
           position="top-center"

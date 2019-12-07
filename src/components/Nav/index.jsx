@@ -1,88 +1,56 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState } from "react";
 import { connect } from "react-redux";
 import Link from "next/link";
+import { useRouter } from "next/router";
 import * as Actions from "@store/actions/noteActions";
 import style from "@styles/css";
+import useNav from "./useNav";
+import DropDown from "./partitions/DropDown";
+import NoteBtns from "./partitions/NoteBtns";
+import AuthBtns from "./partitions/AuthBtns";
 import "./index.scss";
 
 const Nav = props => {
-  const {
-    saveNote,
-    editNote,
-    makeNote,
-    CreateNoteAsync,
-    UpdateNoteAsync
-  } = props;
+  const router = useRouter();
+
+  const showNoteActions = /(notes|note|note\/*)/.test(router.pathname);
 
   const [navBackground, setNavBackground] = useState(false);
-  const navRef = useRef();
-  navRef.current = navBackground;
-  useEffect(() => {
-    var elem = document.querySelector("main");
-    const nextDiv = document.querySelector("body");
-    const handleScroll = () => {
-      var bounding = elem.getBoundingClientRect();
 
-      const show = bounding.y < 50;
-      if (navRef.current !== show) {
-        setNavBackground(show);
-      }
-    };
-    nextDiv.addEventListener("scroll", handleScroll);
-    return () => {
-      nextDiv.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
+  useNav({ navBackground, setNavBackground });
 
   return (
     <nav
       className={`mainNav px-2 sm:px-8  justify-between ${
         navBackground ? "scroll" : ""
-      }`}
+      } ${navBackground ? "scale" : ""}`}
     >
-      <Link href={`${process.env.URL}`}>
-        <div
-          className={`Logo flex items-center ${navBackground ? "scale" : ""}`}
-        >
+      <Link
+        href={`${process.env.URL}${props.auth.isAuthenticated ? "notes" : ""}`}
+      >
+        <div className={`Logo flex items-center`}>
           <div className="border-0 logo" style={style.logo}></div>
           <h3>ScrapBook</h3>
         </div>
       </Link>
-      <div
-        className={`actions w-32 flex flex-row flex-grow-0 justify-end ${
-          navBackground ? "scale" : ""
-        }`}
-      >
-        {makeNote ? (
-          <button
-            className="btn p-1 px-2 text-white bg-green-600"
-            onClick={_ => CreateNoteAsync(editNote)}
-          >
-            Create
-          </button>
+      <div className="actions">
+        {showNoteActions && <NoteBtns {...props} />}
+        {props.auth.isAuthenticated ? (
+          <DropDown />
         ) : (
-          <Link href={`${process.env.URL}note`}>
-            <button className="btn p-1 px-2">Add</button>
-          </Link>
+          <AuthBtns auth={props.authActions} />
         )}
-        {saveNote ? (
-          <button
-            className="btn p-1 px-2 text-white bg-gray-800"
-            onClick={_ => UpdateNoteAsync(editNote)}
-          >
-            Save
-          </button>
-        ) : null}
       </div>
     </nav>
   );
 };
 
-const matchStateToProps = ({ note: state }) => {
+const matchStateToProps = ({ note, auth }) => {
   return {
-    saveNote: state.saveNote,
-    editNote: state.editNote,
-    makeNote: state.makeNote
+    saveNote: note.saveNote,
+    editNote: note.editNote,
+    makeNote: note.makeNote,
+    auth
   };
 };
 

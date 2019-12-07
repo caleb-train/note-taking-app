@@ -13,6 +13,7 @@ const useMakeNote = props => {
     isLoading,
     EditNoteNow,
     Reset,
+    auth
   } = props
 
   useEffect(() => {
@@ -24,7 +25,7 @@ const useMakeNote = props => {
   }, [JSON.stringify(data)])
 
   useEffect(() => {
-    if (!props.auth.isAuthenticated()) {
+    if (!auth.isAuthenticated) {
       callToast('Unauthenticated User', 'error');
       Router.push("/");
     }

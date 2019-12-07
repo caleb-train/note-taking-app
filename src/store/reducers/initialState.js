@@ -9,3 +9,10 @@ export const note = {
     color: 'wht'
   }
 }
+
+export const auth = {
+  user: {},
+  isAuthenticated: false,
+  message: '',
+  isSettingAuth: true
+}
