@@ -36,7 +36,7 @@ const Nav = props => {
       <div className="actions">
         {showNoteActions && <NoteBtns {...props} />}
         {props.auth.isAuthenticated ? (
-          <DropDown />
+          <DropDown user={props.auth.user} logout={props.authActions.logout} />
         ) : (
           <AuthBtns auth={props.authActions} />
         )}

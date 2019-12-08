@@ -95,7 +95,7 @@ export default class Auth {
     });
   }
 
-  logout() {
+  logout = () => {
     // Remove tokens and expiry time
     this.accessToken = null;
     this.idToken = null;

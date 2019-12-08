@@ -48,7 +48,16 @@ button {
   }
 }
 
+ul {
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+li,
 a {
   background-image: none !important;
   border: none !important;
+  text-decoration: none !important;
+  list-style-type: none !important;
+  cursor: pointer;
 }

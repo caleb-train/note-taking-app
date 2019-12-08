@@ -1,0 +1,47 @@
+.dropdown {
+  @apply absolute flex flex-col;
+  max-width: 17rem;
+  min-width: 14rem;
+  font-family: 'Montserrat', sans-serif;
+  right: 0.2em;
+  top: 110%;
+  box-shadow: 1px 1px 10px 2px rgba(0, 0, 0, 0.2);
+
+  li {
+    &:hover {
+      background-color: #fcfcfc;
+      color: #474747;
+    }
+  }
+
+  .signOut {
+    @apply border-b-2 py-3 px-8 bg-white cursor-pointer text-center;
+    font-size: 0.85em;
+    border-color: #c4c4c450;
+    color: rgba(0, 0, 0, 0.5);
+  }
+
+  .userinfo {
+    @apply w-full py-2 text-center;
+    background-color: #f4f4f4;
+
+    .username {
+      @apply overflow-hidden p-2 py-2;
+      color: rgba(0, 0, 0, 0.5);
+    }
+
+    .fullname {
+      @apply overflow-hidden p-2 font-semibold whitespace-no-wrap;
+      color: rgba(0, 0, 0, 0.5);
+    }
+
+    p {
+      text-overflow: ellipsis;
+    }
+
+  }
+
+  li.signOut::before {
+    content: '';
+  }
+}
