@@ -1,6 +1,7 @@
 import {
   useEffect
 } from 'react'
+import Router from "next/router";
 import callToast from '@comp/Toast';
 
 const useViewNote = (id, props) => {
@@ -15,6 +16,7 @@ const useViewNote = (id, props) => {
     EditNote,
     GetNoteAsync,
     Reset,
+    auth
   } = props
 
   useEffect(() => {
@@ -24,6 +26,13 @@ const useViewNote = (id, props) => {
       isErrored: false
     })
   }, [JSON.stringify(note)])
+
+  useEffect(() => {
+    if (!auth.isAuthenticated) {
+      callToast('Unauthenticated User', 'error');
+      Router.push("/");
+    }
+  }, [])
 
   useEffect(() => {
     id ? GetNoteAsync(id) : null

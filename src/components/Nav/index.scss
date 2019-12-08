@@ -5,43 +5,96 @@
   background: transparent;
   display: flex;
   align-items: center;
+  padding: 0.7rem;
+
+  @media (min-width: 568px) {
+    padding: 0.3rem;
+  }
 
   &.scroll {
     background: rgb(250, 250, 250);
-    box-shadow: 0 .07rem .5rem rgba(0, 0, 0, .1);
+    box-shadow: 0 0.07rem 0.5rem rgba(0, 0, 0, 0.1);
   }
 
   div {
     margin: 0;
   }
 
-  .scale {
-    transform: scale(0.8);
+  &.scale {
+    @media (min-width: 568px) {
+      .note-actions,
+      .user-actions,
+      .auth-actions,
+      .Logo {
+        transform: scale(0.8);
+      }
+    }
   }
 
-  .logo {
-    margin-right: 0.5rem;
-    display: inline-block;
-    width: 3rem;
-    height: 3rem;
-    background-size: cover;
-    background-repeat: no-repeat;
+  .Logo {
+    h3 {
+      color: rgba(0, 0, 0, 0.8);
+      font-size: 1.25rem;
+      display: none;
+    }
 
     @media (min-width: 568px) {
+      h3 {
+        display: inline-block;
+      }
+    }
+
+    .logo {
+      margin-right: 0.5rem;
+      display: inline-block;
       width: 3rem;
       height: 3rem;
+      background-size: cover;
+      background-repeat: no-repeat;
     }
   }
 
   .actions {
-    button.btn {
-      margin: 0 0.5rem;
-    }
-  }
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 
-  h3 {
-    color: rgba(0, 0, 0, 0.8);
-    font-size: 1.25rem;
-    display: inline-block;
+    .note-actions {
+      display: flex;
+      flex-grow: 0;
+      justify-content: flex-end;
+      width: 7rem;
+      margin-right: 1rem;
+    }
+
+    .user-actions {
+      display: flex;
+      align-items: center;
+      .drop-down-arrow {
+        width: 1.5rem;
+        height: 0.8rem;
+        margin-left: 0.3rem;
+        border: none;
+      }
+    }
+
+    button.btn {
+      margin: 0 0.3rem;
+      padding: 0.25rem 0.5rem;
+      font-size: 0.8rem;
+
+      @media (min-width: 568px) {
+        padding: 0.25rem 0.5rem;
+        margin: 0 0.5rem;
+        font-size: 1rem;
+      }
+    }
+
+    .profile-img {
+      width: 2rem;
+      height: 2rem;
+      border-radius: 2rem;
+      background: turquoise;
+    }
   }
 }

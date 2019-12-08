@@ -1,15 +1,16 @@
 import React from "react";
 import { Provider } from "react-redux";
-import Nav from "@comp/Nav";
 import { ToastContainer } from "react-toastify";
 import App from "next/app";
 import withRedux from "next-redux-wrapper";
+import AuthWrapper from "@client/guards";
 import { initStore } from "@store";
 import "@styles/main.scss";
 import "@styles/paper.css";
 
 class MyApp extends App {
-  /* static async getInitialProps({ Component, ctx }) {
+  static async getInitialProps({ Component, ctx }) {
+    /* console.log(ctx); */
     return {
       pageProps: {
         ...(Component.getInitialProps
@@ -17,16 +18,13 @@ class MyApp extends App {
           : {})
       }
     };
-  } */
+  }
 
   render() {
-    const { Component, store } = this.props;
+    const { Component, store, pageProps } = this.props;
     return (
       <Provider store={store}>
-        <Nav />
-        <main>
-          <Component />
-        </main>
+        <AuthWrapper Component={Component} pageProps={pageProps} />
         <ToastContainer
           autoClose={5000}
           position="top-center"

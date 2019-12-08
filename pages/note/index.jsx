@@ -12,12 +12,13 @@ import { auto_grow } from "@utils";
 import "@styles/note.scss";
 
 const CreateNote = props => {
-  console.log(props);
+  /* console.log(props); */
   const { editNote, isLoading, updateNote, message, isErrored } = useMakeNote(
     props
   );
+
   if (!isErrored && message) {
-    Router.push(`${process.env.URL}`);
+    Router.push(`${process.env.URL}notes`);
   }
   return isLoading ? (
     <Loader />

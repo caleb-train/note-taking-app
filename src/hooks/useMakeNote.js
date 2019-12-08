@@ -1,6 +1,7 @@
 import {
   useEffect
 } from 'react'
+import Router from "next/router";
 import callToast from '@comp/Toast';
 
 const useMakeNote = props => {
@@ -12,6 +13,7 @@ const useMakeNote = props => {
     isLoading,
     EditNoteNow,
     Reset,
+    auth
   } = props
 
   useEffect(() => {
@@ -23,6 +25,10 @@ const useMakeNote = props => {
   }, [JSON.stringify(data)])
 
   useEffect(() => {
+    if (!auth.isAuthenticated) {
+      callToast('Unauthenticated User', 'error');
+      Router.push("/");
+    }
     Reset()
     return () => Reset()
   }, [])

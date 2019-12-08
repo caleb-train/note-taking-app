@@ -15,4 +15,10 @@ module.exports = {
   rumple: {
     backgroundImage: `url('${process.env.URL}crumpled-paper.webp')`
   },
+  dropDownArrow: `${process.env.URL}arrow.webp`,
+  profilePic: url => ({
+    backgroundImage: `url('${url}')`,
+    backgroundSize: 'cover',
+    backgroundPosition: 'center'
+  })
 }
