@@ -29,7 +29,7 @@ const Nav = props => {
         href={`${process.env.URL}${props.auth.isAuthenticated ? "notes" : ""}`}
       >
         <div className={`Logo flex items-center`}>
-          <div className="border-0 logo" style={style.logo}></div>
+          <img className="border-0 logo" src={style.logo} />
           <h3>ScrapBook</h3>
         </div>
       </Link>

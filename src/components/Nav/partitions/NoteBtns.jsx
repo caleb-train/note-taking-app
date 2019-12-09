@@ -11,7 +11,7 @@ const NoteBtns = ({
   <div className={`note-actions`}>
     {makeNote ? (
       <button
-        className="btn text-white bg-green-600"
+        className="btn text-white create"
         onClick={_ => CreateNoteAsync(editNote)}
       >
         Create

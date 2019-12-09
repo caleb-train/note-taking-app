@@ -22,6 +22,7 @@
 
   &.scale {
     @media (min-width: 568px) {
+
       .note-actions,
       .user-actions,
       .auth-actions,
@@ -70,6 +71,7 @@
     .user-actions {
       display: flex;
       align-items: center;
+
       .drop-down-arrow {
         width: 1.5rem;
         height: 0.8rem;
@@ -82,6 +84,12 @@
       margin: 0 0.3rem;
       padding: 0.25rem 0.5rem;
       font-size: 0.8rem;
+
+      &.login,
+      &.create {
+        background-color: #6C63FF;
+        border-color: rgb(82, 75, 221);
+      }
 
       @media (min-width: 568px) {
         padding: 0.25rem 0.5rem;

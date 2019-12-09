@@ -1,0 +1,135 @@
+.banner-bg {
+  height: 28rem;
+  background: radial-gradient(circle at 50% 40%,
+      rgba(255, 255, 255, 1),
+      rgba(243, 243, 243, 1));
+
+  @media (min-width: 768px) {
+    background: radial-gradient(circle at 70%,
+        rgba(255, 255, 255, 1),
+        rgba(245, 245, 245, 1),
+        rgba(245, 245, 245, 1));
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    padding: 2rem 3rem;
+    height: 24rem;
+  }
+
+  @media (min-width: 992px) {
+    padding: 2rem 7rem;
+  }
+
+  @media (min-width: 1200px) {
+    height: 28rem;
+  }
+
+  padding: 5rem 0 4rem;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  position: relative;
+
+  .banner-img {
+    width: 70%;
+    position: relative;
+    z-index: 11;
+
+    @media (min-width: 768px) {
+      width: 70%;
+    }
+  }
+
+  .banner-content {
+    z-index: 2;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+
+    @media (min-width: 768px) {
+      text-align: left;
+    }
+
+    section {
+      text-align: center;
+      margin: 2rem auto 1rem;
+
+      @media (min-width: 768px) {
+        text-align: left;
+      }
+
+      h3 {
+        font-family: 'Quicksand';
+        font-size: 1.7rem;
+
+        @media (min-width: 768px) {
+          font-size: 2rem;
+        }
+
+        @media (min-width: 992px) {
+          font-size: 2.4rem;
+        }
+
+        font-weight: 600;
+      }
+
+      p {
+        font-size: .7rem;
+        width: 70%;
+        font-family: 'Quicksand';
+        margin: .8rem auto;
+
+        @media (min-width: 768px) {
+          margin: .8rem 0;
+          width: 80%;
+        }
+
+        @media (min-width: 992px) {
+          font-size: .9rem;
+        }
+      }
+    }
+
+    .banner-action {
+      border-radius: 3rem;
+      padding: .5rem 1rem;
+      font-size: .7rem;
+
+      @media (min-width: 768px) {
+        align-self: flex-start;
+      }
+
+      border: none;
+      color: white;
+      font-weight: 600;
+      font-family: 'Quicksand';
+      background-color: #FC6681;
+    }
+
+  }
+
+  .banner-papers {
+    width: 100%;
+    position: absolute;
+    bottom: 12%;
+    left: 1.5rem;
+    transform: scale(1.4);
+    z-index: 1;
+
+    @media (min-width: 568px) {
+      width: 60%;
+      bottom: 25%;
+      left: 20%;
+    }
+
+    @media (min-width: 768px) {
+      left: 1.5rem;
+      opacity: .7;
+      bottom: 25%;
+    }
+
+    @media (min-width: 992px) {
+      transform: scale(1);
+      bottom: 5%;
+    }
+  }
+}
