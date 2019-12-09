@@ -3,11 +3,13 @@
 @tailwind utilities;
 @tailwind screen;
 
+@import url('https://fonts.googleapis.com/css?family=Quicksand:400,600,700&display=swap');
+
 body,
 html {
-  font-family: Monsterrat;
   overflow: auto;
   height: 100%;
+  overflow-x: hidden;
 }
 
 #__next {

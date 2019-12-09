@@ -1,12 +1,20 @@
 import React from "react";
 import { connect } from "react-redux";
-import Router from "next/router";
-import "@styles/index.scss";
-/* 
-class Home extends Re
- */
-const Home = ({ auth }) => {
-  return <button onClick={_ => auth.login()}>Hello</button>;
+import Banner from "@comp/Home/Banner";
+import Audience from "@comp/Home/Audience";
+import Features from "@comp/Home/Features";
+import Footer from "@comp/Home/Footer";
+import "@styles/home.scss";
+
+const Home = () => {
+  return (
+    <div className="home">
+      <Banner />
+      <Audience />
+      <Features />
+      <Footer />
+    </div>
+  );
 };
 
 export default connect(state => state, {})(Home);
