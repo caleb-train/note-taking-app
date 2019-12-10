@@ -1,8 +1,16 @@
 .banner-bg {
-  height: 28rem;
   background: radial-gradient(circle at 50% 40%,
       rgba(255, 255, 255, 1),
       rgba(243, 243, 243, 1));
+  border-bottom-left-radius: 100% 3rem;
+  border-bottom-right-radius: 100% 3rem;
+  height: 25rem;
+
+  @media (min-width: 568px) {
+    border-bottom-left-radius: 100% 5rem;
+    border-bottom-right-radius: 0;
+    padding: 4rem 3rem;
+  }
 
   @media (min-width: 768px) {
     background: radial-gradient(circle at 70%,
@@ -11,19 +19,20 @@
         rgba(245, 245, 245, 1));
     flex-direction: row-reverse;
     justify-content: space-between;
-    padding: 2rem 3rem;
-    height: 24rem;
+    border-bottom-right-radius: 40rem 25rem;
+    border-bottom-left-radius: 30rem 7rem;
   }
 
   @media (min-width: 992px) {
-    padding: 2rem 7rem;
+    padding: 2rem 5rem;
+    height: 26rem;
   }
 
   @media (min-width: 1200px) {
-    height: 28rem;
+    padding: 2rem 7rem;
   }
 
-  padding: 5rem 0 4rem;
+  padding: 4rem 0;
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -31,11 +40,12 @@
 
   .banner-img {
     width: 70%;
+    max-width: 30rem;
     position: relative;
     z-index: 11;
 
     @media (min-width: 768px) {
-      width: 70%;
+      width: 60%;
     }
   }
 
@@ -90,7 +100,6 @@
     }
 
     .banner-action {
-      border-radius: 3rem;
       padding: .5rem 1rem;
       font-size: .7rem;
 
@@ -98,7 +107,7 @@
         align-self: flex-start;
       }
 
-      border: none;
+      border-color: rgb(204, 60, 86);
       color: white;
       font-weight: 600;
       font-family: 'Quicksand';

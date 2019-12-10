@@ -4,7 +4,7 @@ import "./index.scss";
 
 const Audience = () => {
   return (
-    <div className="audience-bg" style={image.audienceBg}>
+    <div className="audience-bg">
       <header>
         <h4>Our Audience</h4>
         <p>

@@ -13,19 +13,19 @@ const Banner = () => {
       </header>
       <section>
         <div>
-          <embed src={image.scrapbook} className="feat" />
+          <embed src={image.scrapbook} className="feat anim" />
           <h5>Make Notes</h5>
         </div>
         <div>
-          <embed src={image.scrap} className="feat" />
+          <embed src={image.scrap} className="feat anim" />
           <h5>Group notes</h5>
         </div>
         <div>
-          <embed src={image.offline} className="feat" />
+          <embed src={image.offline} className="feat anim" />
           <h5>View offline</h5>
         </div>
         <div>
-          <embed src={image.share} className="feat" />
+          <embed src={image.share} className="feat anim" />
           <h5>Share Online</h5>
         </div>
       </section>

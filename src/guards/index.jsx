@@ -18,7 +18,7 @@ const AuthWrapper = ({ isSettingAuth, Component, pageProps, ...props }) => {
     <>
       <Nav authActions={authAction} />
       <main>
-        <Component {...pageProps} />
+        <Component authActions={authAction} {...pageProps} />
       </main>
     </>
   );
