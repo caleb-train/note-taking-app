@@ -9,13 +9,13 @@ module.exports = {
   scrapbook: `${process.env.URL}art-11.svg`,
   offline: `${process.env.URL}art-12.svg`,
   share: `${process.env.URL}art-13.svg`,
-  bg: {
+  bg: (sat = 250, op1 = 0.85, op2 = 1) => ({
     background: `radial-gradient(
-      rgba(250, 250, 250, 0.85),
-      rgba(250, 250, 250, 1)
+      rgba(${sat}, ${sat}, ${sat}, ${op1}),
+      rgba(${sat}, ${sat}, ${sat}, ${op2})
     ),
     url("${process.env.URL}bg-what.webp")`
-  },
+  }),
   bgOnly: {
     backgroundImage: `url("${process.env.URL}bg-what.webp")`
   },

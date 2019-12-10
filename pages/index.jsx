@@ -6,12 +6,14 @@ import Features from "@comp/Home/Features";
 import Footer from "@comp/Home/Footer";
 import "@styles/home.scss";
 
-const Home = () => {
+const Home = ({ authActions }) => {
   return (
     <div className="home">
-      <Banner />
-      <Audience />
-      <Features />
+      <div className="home-bg">
+        <Banner authActions={authActions} />
+        <Audience />
+        <Features />
+      </div>
       <Footer />
     </div>
   );
