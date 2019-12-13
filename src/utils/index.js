@@ -1,14 +1,20 @@
 import axios from 'axios'
+import auth0 from './Auth'
 
-export const axiosCall = ({
+export const axiosCall = async ({
   method = 'GET',
   path = '',
-  payload = {}
+  payload = {},
+  req,
 }) => {
+  const {
+    accessToken
+  } = await auth0.getSession(req)
   const host = process.env.SERVER
   const url = `${host}/api/v1/${path}`;
   const headers = {
     'Content-Type': 'application/json',
+    'Authorization': `Bearer ${accessToken}`
   };
   const axiosdata = {
     method,
@@ -21,16 +27,19 @@ export const axiosCall = ({
   return axios(axiosdata)
     .then(result => {
       const data = result && result.data;
-      console.log(data)
       return data;
     })
     .catch(e => {
       let {
-        error,
+        response: {
+          data: {
+            error
+          },
+        },
         message
       } = e;
-      console.error(e)
-      throw error || message === 'Network Error' ? 'You are offline' : 'Something went wrong'
+      if (error) throw error
+      throw message === 'Network Error' ? 'You are offline' : 'Something went wrong'
     })
 };
 

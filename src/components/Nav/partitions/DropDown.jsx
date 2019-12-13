@@ -7,7 +7,6 @@ const DropDown = props => {
   const [toggle, setToggle] = useState(false);
   const handleDropDown = e => {
     if (dropdownIcon.current && dropdownIcon.current.contains(e.target)) {
-      console.log(e);
       setToggle(true);
       return;
     }

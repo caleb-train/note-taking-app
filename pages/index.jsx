@@ -10,7 +10,7 @@ const Home = ({ authActions }) => {
   return (
     <div className="home">
       <div className="home-bg">
-        <Banner authActions={authActions} />
+        <Banner />
         <Audience />
         <Features />
       </div>

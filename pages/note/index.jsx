@@ -12,7 +12,6 @@ import { auto_grow } from "@utils";
 import "@styles/note.scss";
 
 const CreateNote = props => {
-  /* console.log(props); */
   const { editNote, isLoading, updateNote, message, isErrored } = useMakeNote(
     props
   );

@@ -6,7 +6,6 @@ import {
 export default function (state = auth, action) {
   switch (action.type) {
     case actions.SETUP_USER:
-      console.log(action)
       return {
         ...state, isSettingAuth: false, ...action.payload
       }

@@ -1,16 +1,8 @@
 .banner-bg {
+  height: 28rem;
   background: radial-gradient(circle at 50% 40%,
       rgba(255, 255, 255, 1),
       rgba(243, 243, 243, 1));
-  border-bottom-left-radius: 100% 3rem;
-  border-bottom-right-radius: 100% 3rem;
-  height: 25rem;
-
-  @media (min-width: 568px) {
-    border-bottom-left-radius: 100% 5rem;
-    border-bottom-right-radius: 0;
-    padding: 4rem 3rem;
-  }
 
   @media (min-width: 768px) {
     background: radial-gradient(circle at 70%,
@@ -21,6 +13,7 @@
     justify-content: space-between;
     border-bottom-right-radius: 40rem 25rem;
     border-bottom-left-radius: 30rem 7rem;
+    padding: 2rem 3rem;
   }
 
   @media (min-width: 992px) {
@@ -68,7 +61,7 @@
       }
 
       h3 {
-        font-family: 'Quicksand';
+        font-family: "Quicksand";
         font-size: 1.7rem;
 
         @media (min-width: 768px) {
@@ -83,37 +76,53 @@
       }
 
       p {
-        font-size: .7rem;
+        font-size: 0.7rem;
         width: 70%;
-        font-family: 'Quicksand';
-        margin: .8rem auto;
+        font-family: "Quicksand";
+        margin: 0.8rem auto;
 
         @media (min-width: 768px) {
-          margin: .8rem 0;
+          margin: 0.8rem 0;
           width: 80%;
         }
 
         @media (min-width: 992px) {
-          font-size: .9rem;
+          font-size: 0.9rem;
         }
       }
     }
 
-    .banner-action {
-      padding: .5rem 1rem;
-      font-size: .7rem;
+    .enter-app {
+      display: flex;
+      justify-content: space-between;
+      align-self: center;
+      width: 15rem;
 
       @media (min-width: 768px) {
         align-self: flex-start;
+        justify-content: space-between;
       }
 
-      border-color: rgb(204, 60, 86);
-      color: white;
-      font-weight: 600;
-      font-family: 'Quicksand';
-      background-color: #FC6681;
-    }
+      a {
+        .banner-action {
+          padding: 0.5rem 1rem;
+          font-size: 0.7rem;
+          border-color: rgb(204, 60, 86);
+          color: white;
+          font-weight: 600;
+          font-family: "Quicksand";
+          background-color: #fc6681;
+        }
 
+        &:nth-child(2) {
+          .banner-action {
+            border-color: #fc6681;
+            color: #fc6681;
+            background-color: transparent;
+          }
+        }
+      }
+    }
   }
 
   .banner-papers {
@@ -132,7 +141,7 @@
 
     @media (min-width: 768px) {
       left: 1.5rem;
-      opacity: .7;
+      opacity: 0.7;
       bottom: 25%;
     }
 
