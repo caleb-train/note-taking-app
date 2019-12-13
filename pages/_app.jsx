@@ -10,7 +10,6 @@ import "@styles/paper.css";
 
 class MyApp extends App {
   static async getInitialProps({ Component, ctx }) {
-    /* console.log(ctx); */
     return {
       pageProps: {
         ...(Component.getInitialProps

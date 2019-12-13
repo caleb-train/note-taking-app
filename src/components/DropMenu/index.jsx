@@ -3,7 +3,6 @@ import { connect } from "react-redux";
 import "./index.scss";
 
 const dropDown = ({ user, logout }) => {
-  console.log("hello", logout);
   const username = user && user.nickname;
   return (
     <div className="dropdown">
@@ -16,9 +15,9 @@ const dropDown = ({ user, logout }) => {
         </p>
       </div>
       <ul>
-        <div onClick={logout} role="button" onKeyPress={logout}>
+        <a href="/api/logout">
           <li className="signOut">Sign out</li>
-        </div>
+        </a>
       </ul>
     </div>
   );

@@ -2,30 +2,46 @@ import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import Loader from "@comp/Loader";
 import Nav from "@comp/Nav";
-import Router from "next/router";
-import Auth from "@utils/Auth";
+import Router, { useRouter } from "next/router";
 import { GetUser } from "@store/actions/authActions";
 
-const AuthWrapper = ({ isSettingAuth, Component, pageProps, ...props }) => {
-  const authAction = new Auth(Router);
+const AuthWrapper = ({
+  isSettingAuth,
+  isAuthenticated,
+  Component,
+  pageProps,
+  ...props
+}) => {
+  const router = useRouter();
 
   useEffect(() => {
     props.GetUser();
   }, []);
+
+  const Authenticate = pageProps => {
+    console.log(isAuthenticated);
+    if (isAuthenticated) return <Component {...pageProps} />;
+
+    if (/^\/$/.test(router.pathname)) return <Component {...pageProps} />;
+    else {
+      Router.push("/");
+    }
+    return <Component {...pageProps} />;
+  };
+
   return isSettingAuth ? (
     <Loader />
   ) : (
     <>
-      <Nav authActions={authAction} />
-      <main>
-        <Component authActions={authAction} {...pageProps} />
-      </main>
+      <Nav />
+      <main>{Authenticate(pageProps)}</main>
     </>
   );
 };
 
 const mapStateToProps = ({ auth }) => ({
-  isSettingAuth: auth.isSettingAuth
+  isSettingAuth: auth.isSettingAuth,
+  isAuthenticated: auth.isAuthenticated
 });
 
 export default connect(mapStateToProps, { GetUser })(AuthWrapper);

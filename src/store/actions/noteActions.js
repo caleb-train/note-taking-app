@@ -57,17 +57,18 @@ export function* ListNotesSaga() {
     isLoading: true
   }))
 
-  try {
-    const res = yield call(axios, {
-      path: 'notes/'
-    });
-    yield put(NoteActions(actions.LIST_NOTES, res.data));
-  } catch (message) {
-    yield put(NoteActions(actions.FETCH_ERROR, {
-      message
-    }));
-  }
+  const resp = yield call(fetch, '/api/notes')
+  const res = yield call([resp, 'json'])
+
+  yield put(
+    res.error ?
+    NoteActions(actions.FETCH_ERROR, {
+      message: res.error
+    }) :
+    NoteActions(actions.LIST_NOTES, res.data)
+  )
 }
+
 
 export function* GetNoteSaga({
   id
@@ -77,20 +78,20 @@ export function* GetNoteSaga({
     isLoading: true
   }))
 
-  try {
-    const res = yield call(axios, {
-      path: `note/${id}`
-    });
-    yield put(NoteActions(actions.GET_NOTE, {
+  const resp = yield call(fetch, `/api/note/${id}`)
+  const res = yield call([resp, 'json'])
+
+  yield put(
+    res.error ?
+    NoteActions(actions.FETCH_ERROR, {
+      message: res.error
+    }) :
+    NoteActions(actions.GET_NOTE, {
       data: res.data,
       editNote: res.data[0],
       message: res.message
-    }));
-  } catch (message) {
-    yield put(NoteActions(actions.FETCH_ERROR, {
-      message
-    }));
-  }
+    })
+  )
 }
 
 export function* CreateNoteSaga({
@@ -100,20 +101,22 @@ export function* CreateNoteSaga({
     isLoading: true
   }))
 
-  try {
-    const res = yield call(axios, {
-      method: 'POST',
-      path: `note`,
-      payload,
-    });
-    yield put(NoteActions(actions.CREATE_NOTE, {
+  const resp = yield call(fetch, `/api/note`, {
+    method: 'POST',
+    body: JSON.stringify(payload)
+  })
+
+  const res = yield call([resp, 'json'])
+
+  yield put(
+    res.error ?
+    NoteActions(actions.FETCH_ERROR, {
+      message: res.error
+    }) :
+    NoteActions(actions.CREATE_NOTE, {
       message: res.message
-    }));
-  } catch (message) {
-    yield put(NoteActions(actions.FETCH_ERROR, {
-      message
-    }));
-  }
+    })
+  )
 }
 
 export function* UpdateNoteSaga({
@@ -123,44 +126,45 @@ export function* UpdateNoteSaga({
     isLoading: true
   }))
 
-  try {
-    const res = yield call(axios, {
-      method: 'PATCH',
-      path: `note/${payload.id}`,
-      payload,
-    });
-    yield put(NoteActions(actions.UPDATE_NOTE, {
+  const resp = yield call(fetch, `/api/note/${payload.id}`, {
+    method: 'PATCH',
+    body: JSON.stringify(payload)
+  })
+  const res = yield call([resp, 'json'])
+
+  yield put(
+    res.error ?
+    NoteActions(actions.FETCH_ERROR, {
+      message: res.error
+    }) :
+    NoteActions(actions.UPDATE_NOTE, {
       message: res.message
-    }));
-  } catch (message) {
-    yield put(NoteActions(actions.FETCH_ERROR, {
-      message
-    }));
-  }
+    })
+  )
 }
 
 export function* DeleteNoteSaga({
   id
 }) {
-  console.log('ssspp')
   yield put(NoteActions(actions.EDIT_NOTE, {
     isLoading: true
   }))
 
-  try {
-    const res = yield call(axios, {
-      method: 'DELETE',
-      path: `note/${id}`
-    });
+  const resp = yield call(fetch, `/api/note/${id}`, {
+    method: 'DELETE',
+  })
+  const res = yield call([resp, 'json'])
+
+  if (res.error) {
+    yield put(NoteActions(actions.FETCH_ERROR, {
+      message: res.error
+    }))
+  } else {
     yield put(NoteActions(actions.DELETE_NOTE, {
       data: [null],
       message: res.message
-    }));
+    }))
     yield put(ListNotesAsync())
-  } catch (message) {
-    yield put(NoteActions(actions.FETCH_ERROR, {
-      message
-    }));
   }
 }
 

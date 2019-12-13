@@ -16,7 +16,6 @@ const ViewNote = props => {
   const router = useRouter();
   const { id } = router.query;
 
-  console.log("ssd", id);
   const { editNote, isLoading, updateNote, message } = useViewNote(id, props);
 
   if (message) Router.push(`${process.env.URL}notes`);

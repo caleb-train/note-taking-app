@@ -26,7 +26,9 @@ const Nav = props => {
       } ${navBackground ? "scale" : ""}`}
     >
       <Link
-        href={`${process.env.URL}${props.auth.isAuthenticated ? "notes" : ""}`}
+        href={`${process.env.URL}${
+          /notes/.test(router.pathname) ? "" : "notes"
+        }`}
       >
         <div className={`Logo flex items-center`}>
           <img className="border-0 logo" src={style.logo} />
@@ -36,9 +38,9 @@ const Nav = props => {
       <div className="actions">
         {showNoteActions && <NoteBtns {...props} />}
         {props.auth.isAuthenticated ? (
-          <DropDown user={props.auth.user} logout={props.authActions.logout} />
+          <DropDown user={props.auth.user} />
         ) : (
-          <AuthBtns auth={props.authActions} />
+          <AuthBtns />
         )}
       </div>
     </nav>

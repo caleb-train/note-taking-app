@@ -27,7 +27,7 @@ const useMakeNote = () => {
   useEffect(() => {
     if (message) {
       callToast(message, isErrored ? 'error' : 'success');
-      console.log(message)
+
       dispatch(EditNote({
         message: '',
         isErrored: false

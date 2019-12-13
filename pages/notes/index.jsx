@@ -1,6 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import Router from "next/router";
+import { format } from "date-fns";
 import {
   matchStateToProps,
   matchDispatchToProps
@@ -39,7 +40,9 @@ const ListNotes = props => {
             className="card-footer flex justify-between items-center"
             style={{ border: "none", padding: "0 1rem", height: "3rem" }}
           >
-            <span className="text-sm">2-4-18</span>
+            <span className="text-sm">
+              {format(new Date(note.updatedAt), "dd-MM-yyyy")}
+            </span>
             <button
               onClick={_ => DeleteNote(note.id)}
               className="text-sm p-1 border-2"

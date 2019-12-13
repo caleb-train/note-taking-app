@@ -1,13 +1,10 @@
 import React from "react";
 
-const AuthBtns = ({ auth }) => (
+const AuthBtns = () => (
   <div className={`auth-actions`}>
-    <button
-      className="btn p-1 px-2 text-white login"
-      onClick={_ => auth.login()}
-    >
-      Login
-    </button>
+    <a href="/api/login">
+      <button className="btn p-1 px-2 text-white login">Login</button>
+    </a>
   </div>
 );
 

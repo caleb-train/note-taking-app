@@ -11,7 +11,7 @@ import {
   DeleteNoteSaga,
 } from '../actions/noteActions'
 import {
-  GetUserSaga
+  GetUserSaga,
 } from '../actions/authActions'
 
 
@@ -22,7 +22,7 @@ function* rootSaga() {
     takeLatest(actions.CREATE_NOTE_ASYNC, CreateNoteSaga),
     takeLatest(actions.UPDATE_NOTE_ASYNC, UpdateNoteSaga),
     takeLatest(actions.DELETE_NOTE_ASYNC, DeleteNoteSaga),
-    takeLatest(actions.GET_USER, GetUserSaga),
+    takeLatest(actions.GET_USER, GetUserSaga)
   ])
 }
 

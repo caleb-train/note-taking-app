@@ -4,9 +4,11 @@ import {
 } from 'redux-saga/effects'
 import Auth from '@utils/Auth'
 import * as actions from './actionTypes'
+import {
+  axiosCall as axios
+} from '@utils'
 
-const auth = new Auth(null)
-
+/* const auth = new Auth(null) */
 export const GetUser = () => ({
   type: actions.GET_USER
 })
@@ -18,12 +20,14 @@ export const AuthActions = (type, payload = {}) => ({
 
 export function* GetUserSaga() {
   try {
-    const user = auth.extractUser();
-    if (user) {
+    const res = /* auth.extractUser(); */ yield call(fetch, '/api/me');
+    const user = yield call([res, 'json'])
+
+    if (user && !user.error) {
       yield put(AuthActions(actions.SETUP_USER, {
         user,
         message: '',
-        isAuthenticated: auth.isAuthenticated()
+        isAuthenticated: true /* auth.isAuthenticated() */
       }));
     } else {
       yield put(AuthActions(actions.SETUP_USER, {
