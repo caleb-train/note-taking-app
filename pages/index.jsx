@@ -6,7 +6,12 @@ import Features from "@comp/Home/Features";
 import Footer from "@comp/Home/Footer";
 import "@styles/home.scss";
 
-const Home = ({ authActions }) => {
+const Home = ({ authActions, user }) => {
+  React.useEffect(()=>{
+    window.analytics.track('Landing Page', {
+      user: user != {} && user ? user.name : 'visitor'
+    });
+  }, [])
   return (
     <div className="home">
       <div className="home-bg">
@@ -19,4 +24,4 @@ const Home = ({ authActions }) => {
   );
 };
 
-export default connect(state => state, {})(Home);
+export default connect(({ auth }) => auth, {})(Home);

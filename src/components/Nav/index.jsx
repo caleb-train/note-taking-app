@@ -18,7 +18,7 @@ const Nav = props => {
   const [navBackground, setNavBackground] = useState(false);
 
   useNav({ navBackground, setNavBackground });
-
+  console.log(props.auth.user)
   return (
     <nav
       className={`mainNav px-2 sm:px-8  justify-between ${
