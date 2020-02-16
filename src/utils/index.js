@@ -38,6 +38,7 @@ export const axiosCall = async ({
         },
         message
       } = e;
+      console.log(e)
       if (error) throw error
       throw message === 'Network Error' ? 'You are offline' : 'Something went wrong'
     })

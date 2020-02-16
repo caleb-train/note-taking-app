@@ -4,6 +4,7 @@ import Loader from "@comp/Loader";
 import Nav from "@comp/Nav";
 import Router, { useRouter } from "next/router";
 import { GetUser } from "@store/actions/authActions";
+import analytics from "./analytics";
 
 const AuthWrapper = ({
   isSettingAuth,
@@ -16,6 +17,8 @@ const AuthWrapper = ({
 
   useEffect(() => {
     props.GetUser();
+    
+    analytics();
   }, []);
 
   const Authenticate = pageProps => {

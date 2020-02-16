@@ -10,7 +10,9 @@ export default async function notes(req, res) {
       req
     })
     res.json(resp)
+    console.log(resp)
   } catch (error) {
+    console.log(error)
     res.json({
       error
     })
