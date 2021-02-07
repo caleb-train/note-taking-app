@@ -13,6 +13,9 @@ const Callback = props => {
       if (!res) {
         window.location.replace("/");
       } else {
+        window.analytics.track('Sign Up', {
+          plan: 'Enterprise'
+        });
         props.GetUser();
         Router.push("/notes");
       }
